@@ -67,6 +67,14 @@ public class MiEntradaSalida2 {
             }
             return a;
         }
+        public static void TablasMultiplicar (){
+            for (int i = 0 ; i <= 10; i++){
+                System.out.println("tablas de multiplicar: " + i + ":");
+                for (int b = 0; b <= 10; b++){
+                    System.out.printf("%2d x %2d = %3d \n", i , b , i*b);
+                }
+            }
+        }
 
     }
 }
