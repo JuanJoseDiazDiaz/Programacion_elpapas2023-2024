@@ -59,6 +59,6 @@ public class pruebaEj4 {
         // Calcular la media de porcentajes.
         double averagePercentage = totalPercentage / digitCount.length;
 
-        System.out.printf("La suma de todos los porcentajes es equivalente al 100.00%%. El %% medio para cada contador es de %.2f%%\n", averagePercentage);
+        System.out.printf("La suma de todos los porcentajes es equivalente al 100.00%%. \n El %% medio para cada contador es de %.2f%%\n", averagePercentage);
     }
 }
