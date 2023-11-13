@@ -22,7 +22,7 @@ public class MiEntradaSalida {
          * @param max valor max
          * @return el numero leido
          */
-        public static int leerEntero( String mensaje, int min , int max){
+        public static int leerEntero(String mensaje, int min , int max){
             System.out.println(mensaje);
 
             if (min >= max){
@@ -77,6 +77,7 @@ public class MiEntradaSalida {
                 }
             }
         }
+
 
     }
 }
