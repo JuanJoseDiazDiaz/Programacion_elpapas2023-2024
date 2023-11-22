@@ -4,6 +4,7 @@ public class ej8 {
     public static void main(String[] args) {
         int[][] matriz ={{1,3,5}, {0,2,7}};
         int[][] matriz2 ={{4,3,5}, {6,8,9}};
+
         int[][] resultado = sumarMatrices(matriz, matriz2);
         System.out.println("Matriz 1:");
         imprimirPorPantalla(matriz);

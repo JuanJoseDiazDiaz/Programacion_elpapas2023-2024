@@ -21,7 +21,7 @@ public class ej7 {
             }
         }
         System.out.println();
-        if (m == m2){
+        if (m.length == m2[0].length){
             System.out.println("son iguales las dos matrices");
         }else {
             System.out.println("no son iguales ");

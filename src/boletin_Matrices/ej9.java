@@ -14,22 +14,23 @@ public class ej9 {
         System.out.println(esSimetrica(matriz2));
     }
     public static boolean esSimetrica(int[][] matriz){
+        boolean simetrica = true;
         int fila = matriz.length;
         int columnas = matriz[0].length;
+
         if (fila != columnas){
-            return false;
+            simetrica = false;
         }
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < columnas; j++) {
+        for (int i = 0;simetrica && i < fila; i++) {
+            for (int j = 0;simetrica && j < columnas; j++) {
                 if (matriz[i][j] != matriz[fila -1 -i][j]){
                     System.out.println("Las filas  son iguales, la matriz  es simétrica");
-                    return true;
-
+                    simetrica = false ;
                 }else {
                     System.out.println("Las filas no son iguales, la matriz no es simétrica");
                 }
             }
         }
-        return false;
+        return simetrica;
     }
 }

@@ -14,16 +14,18 @@ public class ej10 {
         System.out.println(esSimetricaY(matriz2));
     }
     public static boolean esSimetricaY(int [][] matriz){
+        boolean simetrica = true;
         int filas = matriz.length;
-        int columas = matriz[0].length;
+        int columnas = matriz[0].length;
 
-        for (int j = 0; j < columas; j++){
-            for (int i = 0; i < filas; i++){
-                if (matriz[i][j] != matriz[filas -1 - i][j]){
-                    return false;
+
+        for (int j = 0;simetrica && j < columnas /2 ; j++){
+            for (int i = 0;simetrica && i < filas; i++){
+                if (matriz[i][j] != matriz[i][columnas -1 -j]){
+                    simetrica = false;
                 }
             }
         }
-        return true;
+        return simetrica;
     }
 }
