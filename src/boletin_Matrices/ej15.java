@@ -14,20 +14,20 @@ public class ej15 {
         Scanner teclado = new Scanner(System.in);
         int fila;
         do {
-            System.out.printf("Introduce la fila empezando en 0 (la matriz tiene %d filas): ", matriz.length);
+            System.out.println("Introduce la fila empezando en 0 (la matriz tiene "+ matriz.length+" filas): ");
             fila = teclado.nextInt();
-        }while (fila < -1 || fila >= matriz.length);
+        }while (fila < 0 || fila >= matriz.length);
 
         int columna;
         do {
-            System.out.printf("Introduce la columna empezando en 0 (la matriz tiene %d columnas): ", matriz[0].length);
+            System.out.printf("Introduce la columna empezando en 0 (la matriz tiene "+ matriz[0].length+" filas): ");
             columna = teclado.nextInt();
-        }while (columna < -1 || columna >= matriz[0].length);
+        }while (columna < 0 || columna >= matriz[0].length);
 
         int posicion = obtenerPosicion(matriz, fila, columna);
         System.out.printf("Esta entre las casillas %d y %d, la posición que ocupa es: %d", fila, columna, posicion);
     }
     public static int obtenerPosicion (int [][] matriz, int fila , int columnas){
-        return (fila * matriz[0].length) + columnas +1;
+        return (fila * matriz[0].length) + columnas + 1;
     }
 }
