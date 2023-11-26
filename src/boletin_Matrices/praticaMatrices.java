@@ -198,7 +198,7 @@ public class PrincipalAlumnos {
             letras[i + 1] = letra;
             letra++;
         }
-        /*Este for llena la matriz (letras) con pares consecutivos de letras comenzando desde la letra que hemos implementado que es la A
+        /*Este for llena el array (letras) con pares consecutivos de letras comenzando desde la letra que hemos implementado que es la A
         y esta seguira asi en orden alfabetico hasta que este llena la matriz por dichos valores
         * */
 
@@ -225,7 +225,7 @@ public class PrincipalAlumnos {
             }
         }
         /*
-         * Este for en cuestion lo que realiza es copiar los elementos de la matriz en orden de fila por fila en el arreglo
+         * Este for en cuestion lo que realiza es copiar los elementos de la matriz en orden de fila por fila en el array 
          * */
         for (int i = letras.length - 1; i > 0; i--) {
             int j = (int) (Math.random() * (i + 1));
@@ -233,7 +233,7 @@ public class PrincipalAlumnos {
             letras[i] = letras[j];
             letras[j] = acum;
         }
-        /*Este for lo que realiza partiendo de la matriz letras , su función es mezclar de manera aleatoria,
+        /*Este for lo que realiza partiendo de la array letras , su función es mezclar de manera aleatoria,
          por ejemplo este for lo que haría es barajar las cartas antes de exponerlas
         * */
 
