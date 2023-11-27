@@ -1,11 +1,11 @@
-package PracticaEvaluable;
+package boletin_Matrices;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class PrincipalAlumnos {
+public class praticaMatrices {
     public static final int TAM = 4;
     public static final int INTENTOS = 5;
     public static final char OCULTO = '#';
@@ -225,7 +225,7 @@ public class PrincipalAlumnos {
             }
         }
         /*
-         * Este for en cuestion lo que realiza es copiar los elementos de la matriz en orden de fila por fila en el array 
+         * Este for en cuestion lo que realiza es copiar los elementos de la matriz en orden de fila por fila en el array
          * */
         for (int i = letras.length - 1; i > 0; i--) {
             int j = (int) (Math.random() * (i + 1));
