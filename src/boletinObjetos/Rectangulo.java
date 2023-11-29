@@ -1,4 +1,4 @@
-package boletin3ProgramacionModular;
+package boletinObjetos;
 
 public class Rectangulo {
     public static final double MAX_LONG_ANCHO = 20;
