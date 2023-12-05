@@ -5,36 +5,43 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+        double saldoIncial;
         int numeroIntegros = 0;
         int numeroReintegros = 0;
-        System.out.println("introduce tu saldo inicial: ");
-        double saldoIncial = teclado.nextDouble();
-        imprimirMenu();
+            System.out.println("introduce tu saldo inicial: ");
+            saldoIncial = teclado.nextDouble();
+            imprimirMenu();
+
+
+
 
         int opciones = teclado.nextInt();
-       do {
-           switch (opciones){
-               case 1:
-                   Cuenta.reintegroDinero(saldoIncial);
-                   System.out.println("Se a realizado el reintegro");
-                   numeroReintegros++;
-                   break;
+        do {
+            switch (opciones) {
+                case 1:
+                    Cuenta.reintegroDinero(saldoIncial);
+                    System.out.println("Se a realizado el reintegro");
+                    numeroReintegros++;
+                    imprimirMenu();
+                    break;
 
-               case 2:
-                   Cuenta.ingresoDinero(saldoIncial);
-                   System.out.println("Se a realizado el propio ingreso");
-                   numeroIntegros++;
-                   break;
+                case 2:
+                    Cuenta.ingresoDinero(saldoIncial);
+                    System.out.println("Se a realizado el propio ingreso");
+                    numeroIntegros++;
 
-               case 3:
-                   Cuenta.comprobacionOperaciones(saldoIncial, numeroReintegros, numeroIntegros);
-                   System.out.println("Se a realizado la operacion");
-                   break;
-               case 4:
-                   System.out.println("ADIOS");
-                   break;
-           }
-       }while (opciones >= 4);
+
+
+                case 3:
+                    Cuenta.comprobacionOperaciones(saldoIncial, numeroReintegros, numeroIntegros);
+                    System.out.println("Se a realizado la operacion");
+                    break;
+
+                case 4:
+                    System.out.println("ADIOS, su cuenta esta cerrada");
+                    break;
+            }
+        } while (opciones > 4);
 
     }
     public static void imprimirMenu(){

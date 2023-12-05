@@ -3,6 +3,7 @@ package boletinObjetos.Banco;
 import java.util.Scanner;
 
 public class Cuenta {
+    Cuenta usuario = new Cuenta();
 
     public static double reintegroDinero(double saldoInicial){
         Scanner teclado = new Scanner(System.in);
@@ -30,7 +31,7 @@ public class Cuenta {
     public static void comprobacionOperaciones (double saldoInicial, int numeroReintegros, int numeroIntegros){
         System.out.println("SU SALDO ACTUAL ES DE :" + saldoInicial);
         System.out.println("la operacion de reintegros ha sido usada: "+ numeroReintegros);
-        System.out.println("la operacion de reintegros ha sido usada: "+ numeroIntegros);
+        System.out.println("la operacion de integros ha sido usada: "+ numeroIntegros);
     }
 
 
