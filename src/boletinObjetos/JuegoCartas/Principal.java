@@ -15,8 +15,11 @@ public class Principal {
         Juego j = new Juego(baraja);
         try {
             j.repartirCartas(13, 4);
-        }catch (JuegoException.)
-        /* j.mostrarBaraja();
+        }catch (JuegoException e){
+            System.out.println(e.getMessage());
+        }
+         j.mostrarBaraja();
+        /*
         j.barajarCartas();
         j.repartirCartas(3,4);
 
