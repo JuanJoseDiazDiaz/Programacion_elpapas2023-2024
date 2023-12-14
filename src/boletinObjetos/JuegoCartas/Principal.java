@@ -18,12 +18,13 @@ public class Principal {
         }catch (JuegoException e){
             System.out.println(e.getMessage());
         }
-         j.mostrarBaraja();
+        // j.mostrarBaraja();
         /*
         j.barajarCartas();
         j.repartirCartas(3,4);
 
          */
+
     }
 
 

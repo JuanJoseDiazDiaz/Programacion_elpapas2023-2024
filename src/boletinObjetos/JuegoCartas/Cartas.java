@@ -3,18 +3,18 @@ package boletinObjetos.JuegoCartas;
 public class Cartas {
     private String palo;
 
-    private Long numero;
+    private String numero;
 
     public Cartas(String palo, String numero) {
         this.palo = palo;
         this.numero = numero;
     }
 
-    public Long getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Long numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

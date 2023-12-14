@@ -32,12 +32,16 @@ public class Juego {
             for (int i = 0 ; i < numJugadores; i++){
                 System.out.println("Repartiendo cartas al jugador"+ (i +1));
                 for (int j = 0; j < numCartas; j++){
-                    System.out.println("\t"+ baraja[i* numCartas + j+cartasRepartidas]);
+                    System.out.println("\t"+ baraja[cartasRepartidas]);
                     cartasRepartidas++;
                 }
             }
         }else {
             throw new JuegoException("no hay suficientes cartas para repartir");
         }
+    }
+    public int cartasRestantes (){
+       return baraja.length - cartasRepartidas;
+
     }
 }
