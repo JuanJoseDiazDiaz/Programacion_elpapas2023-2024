@@ -29,4 +29,22 @@ public class Biblioteca {
         }
         return encontrado;
     }
+    public void addLibro(String nombre, String autor, String sinopsis,  int numEjemplares, int ejemplaresDisponibles) throws BibliotecaExpection {
+        Libros l = new Libros(nombre, autor, sinopsis,numEjemplares, ejemplaresDisponibles);
+        if (comprabacionLibro(l, autor,nombre)){
+            throw new BibliotecaExpection("este libro, esta repetido");
+        }
+    }
+    public boolean comprabacionLibro(Libros l, String autor, String nombre){
+        boolean libroEncontrado = false;
+        for (int i = 0 ; i < libros.length && !libroEncontrado; i++){
+            if (l.equals(libros[i]) && autor.equals(autor) && nombre.equals(nombre)){
+            }
+        }
+        return libroEncontrado;
+    }
+
+
+
+
 }
