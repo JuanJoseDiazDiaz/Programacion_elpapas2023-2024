@@ -1,14 +1,28 @@
 package boletinObjetos.MaquinaCafe;
 
 public class maquina {
-    public static void MenuMaquina(){
-        System.out.println("Elige cualquier opcion:");
-        System.out.println("1. Servir café solo (1 euro) ");
-        System.out.println("2. Servir leche (0,8 euros)");
-        System.out.println("3. Servir café con leche (1,5 euros)");
-        System.out.println("4. Consultar estado máquina. Aparecen los datos de los depósitos y del monedero");
-        System.out.println("5. Apagar máquina y salir");
+    public static final int CAP_MAX_DEPOSITO_CAFE = 50;
+    public static final int CAP_MAX_DEPOSITO_LECHE = 50;
+    public static final int CAP_MAX_DEPOSITO_VASOS = 80;
+    public static final double MONEDERO_INICIAL = 10;
+    public static final double PRECIO_CAFE = 1;
+    public static final double PRECIO_LECHE = 0.8;
+    public static final double PRECIO_CAFE_LECHE = 1.5;
+
+    private int cafeRestante;
+    private int lecheRestante;
+    private int vasosRestante;
+    private double monederoIncial;
+
+    public maquina() {
+        rellenarDeposito();
+        monederoIncial = MONEDERO_INICIAL;
     }
+public void rellenarDeposito(){
+        cafeRestante = CAP_MAX_DEPOSITO_CAFE;
+        lecheRestante = CAP_MAX_DEPOSITO_LECHE;
+        vasosRestante = CAP_MAX_DEPOSITO_VASOS;
+}
     //QUIERO CAMBIARLO A DOUBLE EL METODO
     public static void ServirCafe (double dineroActual){
         double costeCafe = 1;

@@ -8,7 +8,7 @@ public class monedero {
     public static void cuantoTengo (){
         Scanner teclado = new Scanner(System.in);
         System.out.println("cuanto dinero dispones en el monedero: ");
-        double dineroActual = teclado.nextDouble();
+        double dineroActual = maquina.MONEDERO_INICIAL;
         System.out.println("esta es la cantidad que tienes dentro del monedero: "+dineroActual+ "€");
     }
 }
