@@ -1,12 +1,17 @@
 package boletinObjetos.MaquinaCafe;
 
+import java.util.Scanner;
+
 public class maquinaPrincipal {
     public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
         int opcionEscogida = 0;
         monedero.cuantoTengo();
         maquina maq = new maquina();
         do {
             MenuMaquina();
+            System.out.println("Seleciona la opcion");
+            opcionEscogida = teclado.nextInt();
             switch (opcionEscogida){
                 case 1 :
                     if (maq.puedoServirCafe()){
@@ -46,12 +51,19 @@ public class maquinaPrincipal {
                         System.out.println("Producto agotado");
                     }
                     break;
+                case 4:
+                    System.out.println(maq);
+                    break;
+                case 5:
+                    System.out.println("Gracias por confiar en nuestra maquina :)");
+                    break;
 
                 default:
                     throw new IllegalStateException("Unexpected value: " + opcionEscogida);
             }
-            System.out.println("Seleciona la opcion");
-       }while(opcionEscogida <= 5);
+
+
+       }while(opcionEscogida != 5);
 
     }
     public static void MenuMaquina(){

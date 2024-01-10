@@ -1,10 +1,13 @@
 package boletinObjetos.MaquinaCafe;
 
+import java.util.Scanner;
+
 public class maquina {
+    Scanner teclado = new Scanner(System.in);
     public static final int CAP_MAX_DEPOSITO_CAFE = 50;
     public static final int CAP_MAX_DEPOSITO_LECHE = 50;
     public static final int CAP_MAX_DEPOSITO_VASOS = 80;
-    public static final double MONEDERO_INICIAL = 10;
+    public static final double MONEDERO_INICIAL = 1.5;
     public static final double PRECIO_CAFE = 1;
     public static final double PRECIO_LECHE = 0.8;
     public static final double PRECIO_CAFE_LECHE = 1.5;
@@ -26,15 +29,16 @@ public void rellenarDeposito(){
     //QUIERO CAMBIARLO A DOUBLE EL METODO
 
     public void darCambio(double dineroActual) throws MaquinaExpection {
-                double costeCafe = 1;
-                double cambio = dineroActual - costeCafe;
-                if (dineroActual == costeCafe){
+        System.out.println("Introduce el coste del producto elegido: ");
+        double pago = teclado.nextDouble();
+                double cambio = dineroActual - pago;
+                if (dineroActual == pago){
                     System.out.println("Gracias por si compra, has dado el dinero justo");
-                } else if (dineroActual > costeCafe && monederoIncial >= (cambio)) {
-                    monederoIncial = monederoIncial + costeCafe;
+                } else if (dineroActual > pago && monederoIncial >= (cambio)) {
+                    monederoIncial = monederoIncial - pago;
                     System.out.println("Aqui tiene su vuelta que es: " + cambio+ " €");
-                } else if (costeCafe > dineroActual) {
-                    throw new MaquinaExpection ("Pago insuficiente");
+                } else if (dineroActual > pago) {
+                    throw new MaquinaExpection ("tu saldo es insuficiente");
                 }else {
                     throw new MaquinaExpection("Disculpes las molestias");
                 }
@@ -65,7 +69,14 @@ public void rellenarDeposito(){
             return cafeRestante > 0 && vasosRestante > 0 && lecheRestante > 0;
         }
 
-
-
+    @Override
+    public String toString() {
+        return "maquina{" +
+                "cafeRestante=" + cafeRestante +
+                ", lecheRestante=" + lecheRestante +
+                ", vasosRestante=" + vasosRestante +
+                ", monederoIncial=" + monederoIncial +
+                '}';
+    }
 }
 
