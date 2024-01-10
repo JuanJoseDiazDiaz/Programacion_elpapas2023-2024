@@ -1,19 +1,57 @@
 package boletinObjetos.MaquinaCafe;
 
-import boletin1Arrays.MiEntradaSalida;
-
 public class maquinaPrincipal {
     public static void main(String[] args) {
         int opcionEscogida = 0;
         monedero.cuantoTengo();
+        maquina maq = new maquina();
         do {
             MenuMaquina();
             switch (opcionEscogida){
                 case 1 :
+                    if (maq.puedoServirCafe()){
+                        try {
+                            maq.darCambio(maquina.MONEDERO_INICIAL);
+                            maq.servirCafe();
+                        }catch (MaquinaExpection e ){
+                            System.out.println(e.getMessage());
+                        }
+                    }else {
+                        System.out.println("Producto agotado");
+                    }
+                break;
 
+                case 2:
+                    if (maq.puedoServirLeche()){
+                        try {
+                            maq.darCambio(maquina.MONEDERO_INICIAL);
+                            maq.servirLeche();
+                        }catch (MaquinaExpection e ){
+                            System.out.println(e.getMessage());
+                        }
+                    }else {
+                        System.out.println("Producto agotado");
+                    }
+                    break;
+
+                case 3:
+                    if (maq.puedoServirCafeConLeche()){
+                        try {
+                            maq.darCambio(maquina.MONEDERO_INICIAL);
+                            maq.servirCafeConLeche();
+                        }catch (MaquinaExpection e ){
+                            System.out.println(e.getMessage());
+                        }
+                    }else {
+                        System.out.println("Producto agotado");
+                    }
+                    break;
+
+                default:
+                    throw new IllegalStateException("Unexpected value: " + opcionEscogida);
             }
             System.out.println("Seleciona la opcion");
-        }while(opcionEscogida != 5);
+       }while(opcionEscogida <= 5);
 
     }
     public static void MenuMaquina(){

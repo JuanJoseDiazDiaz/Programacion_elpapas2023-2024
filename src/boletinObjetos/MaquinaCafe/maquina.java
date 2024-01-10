@@ -24,14 +24,48 @@ public void rellenarDeposito(){
         vasosRestante = CAP_MAX_DEPOSITO_VASOS;
 }
     //QUIERO CAMBIARLO A DOUBLE EL METODO
-    public static void ServirCafe (double dineroActual){
-        double costeCafe = 1;
-        System.out.println("El precio del cafe solo es de 1€");
-        double resultado = dineroActual - costeCafe;
-        System.out.println("Aqui tienes su cafe");
-        if (dineroActual < resultado){
-            System.out.println("aqui tiene su cambio");
-        }
+
+    public void darCambio(double dineroActual) throws MaquinaExpection {
+                double costeCafe = 1;
+                double cambio = dineroActual - costeCafe;
+                if (dineroActual == costeCafe){
+                    System.out.println("Gracias por si compra, has dado el dinero justo");
+                } else if (dineroActual > costeCafe && monederoIncial >= (cambio)) {
+                    monederoIncial = monederoIncial + costeCafe;
+                    System.out.println("Aqui tiene su vuelta que es: " + cambio+ " €");
+                } else if (costeCafe > dineroActual) {
+                    throw new MaquinaExpection ("Pago insuficiente");
+                }else {
+                    throw new MaquinaExpection("Disculpes las molestias");
+                }
     }
+    public void servirCafe(){
+        System.out.println("aqui tienes tu cafe ");
+        cafeRestante--;
+        vasosRestante--;
+    }
+        public void servirLeche(){
+        System.out.println("aqui tienes tu leche ");
+        lecheRestante--;
+        vasosRestante--;
+    }public void servirCafeConLeche(){
+        System.out.println("aqui tienes tu cafe con leche");
+        cafeRestante--;
+        lecheRestante--;
+        vasosRestante--;
+    }
+
+        public boolean puedoServirCafe () {
+            return cafeRestante > 0 && vasosRestante > 0;
+        }
+        public boolean puedoServirLeche () {
+            return lecheRestante > 0 && vasosRestante > 0;
+        }
+        public boolean puedoServirCafeConLeche () {
+            return cafeRestante > 0 && vasosRestante > 0 && lecheRestante > 0;
+        }
+
+
+
 }
 
