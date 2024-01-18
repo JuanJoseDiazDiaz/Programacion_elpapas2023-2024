@@ -11,6 +11,9 @@ public class Televisor {
     private int alturaPixel;
     private String conexiones;
     private String protocolos;
+    private int pixelRojo;
+    private int pixelVerde;
+    private int pixelAzul;
     private String pixeles;
 
 
@@ -19,7 +22,6 @@ public class Televisor {
         this.alturaPixel = alturaPixel;
         this.conexiones = conexiones;
         this.protocolos = protocolos;
-
     }
 
     public void comprobacionPixel(){
