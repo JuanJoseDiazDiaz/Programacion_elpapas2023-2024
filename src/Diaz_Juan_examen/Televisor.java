@@ -74,9 +74,20 @@ public class Televisor {
         return pixeles;
     }
 
-    public String getColorPromedio() {
-        String color = Arrays.toString(Imagen.generateRandomColorsPromedio(anchoPixel, alturaPixel, VALOR_MAX_RGB, VALOR_MIN_RGB));
-        return color;
+    public String getColorPromedio() { //CREA COLOR ALEATORIAMENTE
+        String [][] colorMatrix = new String[alturaPixel][anchoPixel];
+        Random random = new Random();
+
+        for (int i = 0; i < alturaPixel; i++) {
+            for (int j = 0; j < anchoPixel; j++) {
+                // Generar un color hexadecimal aleatorio
+                String color = String.format("#%06X", random.nextInt(0xFFFFFF + 1));
+                colorMatrix[i][j] = color;
+                int promedioColor = VALOR_MAX_RGB + VALOR_MIN_RGB;
+                System.out.println("este es el promedio de colores de la television: "+ Integer.toHexString(promedioColor));
+            }
+        }
+        return Arrays.toString(colorMatrix);
     }
 
     public boolean conectar(Dispositivo bluray) throws DispositivoNoCompatibleException {
