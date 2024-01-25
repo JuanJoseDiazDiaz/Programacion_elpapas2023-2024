@@ -1,13 +1,13 @@
-package Diaz_Juan_examen;
+package ExamenHecho;
 
 public class Principal {
     public static void main(String[] args) {
         Televisor televisor = new Televisor(1920, 1080, "HDMI DISPLAYPORT", "TMDS LVDS HDCP");
-        String[][] imagen = Imagen.generateRandomColors(televisor.getWidth(), televisor.getHeight());
+        String[][] imagen = Imagen.generateRandomColors(televisor.getAnchura(), televisor.getAltura());
         televisor.setImagen(imagen);
         System.out.println("El televisor está defectuoso: " + televisor.isDefectuoso());
         System.out.println("El color promedio de la imagen es: " + televisor.getColorPromedio());
-        //System.out.println("El color más alto de la imagen es: " + televisor.getColorMasAlto());
+
 
         Dispositivo bluray = new Dispositivo("Blu-ray", "BLAB HDMI", "U3T HDCP");
         try {

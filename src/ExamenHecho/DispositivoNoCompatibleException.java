@@ -1,6 +1,6 @@
-package Diaz_Juan_examen;
+package ExamenHecho;
 
-public class DispositivoNoCompatibleException extends Throwable {
+public class DispositivoNoCompatibleException extends Exception{
     public DispositivoNoCompatibleException(String message) {
         super(message);
     }
