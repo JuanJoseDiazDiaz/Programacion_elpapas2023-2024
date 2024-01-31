@@ -25,7 +25,7 @@ public class Cuenta {
         System.out.println("cuanto dinero quieres ingresar: ");
         dineroIngresado = teclado.nextDouble();
         double cantIngresada = dineroIngresado + saldoActual;
-        System.out.printf("En su cuenta se a ingresado %d, y el total de la cuenta es : %d", dineroIngresado, cantIngresada);
+        System.out.println("En su cuenta se a ingresado "+dineroIngresado+" y el total de la cuenta es : "+cantIngresada);
     }
     public void retirarDinero(double dineroSacar) throws CuentaCreditoExpection {
         if (dineroSacar <= 0 ){
@@ -37,7 +37,7 @@ public class Cuenta {
         System.out.println("Cual es la cantidad a sacar: ");
         dineroSacar = teclado.nextDouble();
         double cantSacada = dineroSacar - saldoActual;
-        System.out.printf("En su cuenta se a sacado %d, y el total de la cuenta es : %d", dineroSacar, cantSacada);
+        System.out.println("En su cuenta se a sacado "+dineroSacar+" y el total de la cuenta es : "+cantSacada);
 
     }
 

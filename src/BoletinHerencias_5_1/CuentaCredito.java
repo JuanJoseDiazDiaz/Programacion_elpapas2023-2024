@@ -3,6 +3,7 @@ package BoletinHerencias_5_1;
 public class CuentaCredito extends Cuenta{
     public static final double CREDITO_ACTUAL = 100;
     public static final double CREDITO_MAX = 300;
+    private double creditoLimite = CREDITO_MAX;
     private double creditoActual;
 
     public CuentaCredito(double saldoActual, double creditoActual) throws CuentaCreditoExpection {
@@ -32,7 +33,19 @@ public class CuentaCredito extends Cuenta{
 
     @Override
     public void ingresarDinero(double dineroIngresado) throws CuentaCreditoExpection {
-
+            if (creditoActual < creditoLimite){
+                double diferenciaCredito = creditoActual - creditoLimite;
+                if (diferenciaCredito <= dineroIngresado){
+                    dineroIngresado -= diferenciaCredito;
+                    creditoActual = creditoLimite;
+                }else {
+                    creditoActual += dineroIngresado;
+                    dineroIngresado = 0;
+                }
+                if (dineroIngresado > 0){
+                    super.ingresarDinero(dineroIngresado);
+                }
+            }
     }
 
     @Override
@@ -47,4 +60,5 @@ public class CuentaCredito extends Cuenta{
            super.retirarDinero(getSaldoActual());
        }
     }
+
 }
