@@ -17,16 +17,16 @@ public class MenuVehiculo {
             switch (opcion){
 
                 case 1:
-
+                    darAltaVehiculos();
                     break;
                     case 2:
-
+                    calcularPrecio();
                     break;
                     case 3:
-
+                     imprimirLista();
                     break;
                     case 4:
-
+                        System.out.println("Adios");
                     break;
             }
         }while (opcion != 3);
@@ -47,6 +47,27 @@ public class MenuVehiculo {
             System.out.println(opcion+ ". " +String.valueOf(tipoVehiculo).toLowerCase());
         }
         seleccionUsuario = Lectora.leerEnteroDeRango("Seleccion: ", TiposVehiculos.values().length, 1);
-
+    }
+    private static void calcularPrecio(){
+        int posVehiculo;
+        int vehiculosAlta = 0;
+        String matricula =Lectora.solicitarCadenaMayus("Introduce la matricula del vehiculo: ");
+        int dias = Lectora.leerEnteroDeRango("introduzca el numero de dias alquilado: ", 365, 1);
+        for (posVehiculo = 0; posVehiculo < vehiculosAlta; posVehiculo++){
+            if (listaVehiculos[posVehiculo].getMatricula().equals(matricula)){
+                break;
+            }
+        }
+        if (posVehiculo != vehiculosAlta){
+            System.out.println("el vehiculo seleccionado con matricula: "+ matricula + " y tras ser usado por "+dias+" " +
+                    "dias, esto con lleva un precio total de "+listaVehiculos[posVehiculo].getPrecioAlquier(dias));
+        }else {
+            System.out.println("Su matricula no ha sido detectada ");
+        }
+    }
+    private static void imprimirLista(){
+        for (int i = 0; i < listaVehiculos.length; i++){
+            System.out.println(i);
+        }
     }
 }
