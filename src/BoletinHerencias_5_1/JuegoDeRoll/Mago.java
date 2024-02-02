@@ -66,4 +66,5 @@ public class Mago extends Personaje {
             throw new PersonajeException("El personaje esta muerto");
         }
     }
+
 }
