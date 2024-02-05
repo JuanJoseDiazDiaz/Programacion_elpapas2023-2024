@@ -5,8 +5,8 @@ public class Personaje {
     private static final int FUERZA_MIN = 0;
     private static final int INTELIGENCIA_MAX = 20;
     private static final int INTELIGENCIA_MIN = 0;
-    private static final int VIDA_MAX = 100;
-    private static final int VIDA_MIN = 0;
+    public static final int VIDA_MAX = 100;
+    public static final int VIDA_MIN = 0;
     private String nombre;
     private Raza raza;
     private int fuerza;
