@@ -6,6 +6,7 @@ public class Clerigo extends Personaje {
     private static final int FUERZA_MAX = 18;
     private static final int INTELIGENCIA_MIN = 12;
     private static final int INTELIGENCIA_MAX = 16;
+    private static final int CURA_CLERIGO = 10;
     private final String diosDeClerigo;
 
     public Clerigo(String nombre, Raza raza, int fuerza, int inteligencia, int vidaMax, String nombreDios) throws PersonajeException {
@@ -45,8 +46,8 @@ public class Clerigo extends Personaje {
             System.out.println(e.getMessage());
         }
     }
-    public void RezoClerigo(Personaje personaje){
-         getVidaActual() += 10;
+    public void RezoClerigo(Personaje personaje) throws PersonajeException {
+         personaje.setVidaActual(personaje.getVidaActual() + CURA_CLERIGO);
         System.out.println("se le ha añadido 10 puntos de vida a este persona");
     }
 }
