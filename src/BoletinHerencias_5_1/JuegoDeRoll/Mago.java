@@ -1,5 +1,7 @@
 package BoletinHerencias_5_1.JuegoDeRoll;
 
+import java.util.Arrays;
+
 public class Mago extends Personaje {
     public static final int NUMERO_MAX_HECHIZOS = 4;
     public static final int INTELIGENCIA_MIN = 17;
@@ -17,7 +19,7 @@ public class Mago extends Personaje {
         if (fuerza > FUERZA_MAX_MAGO) {
             throw new PersonajeException("Valor de la fuerza no esta permitido para ser Mago");
         }
-       super.setFuerza(fuerza);
+        super.setFuerza(fuerza);
     }
 
     @Override
@@ -49,15 +51,11 @@ public class Mago extends Personaje {
 
     }
     public void lanzarHechizo (Personaje personaje, String hechizo) throws PersonajeException {
-        int posHechizo = -1;
-        for (int i = 0; i < hechizos.length && posHechizo == -1; i ++){
+        int posHechizo = 0;
+        for (int i = 0; i < hechizos.length; i ++){
             if (hechizo.equals(hechizos[i])){
                 posHechizo = i;
             }
-
-        }
-        if (posHechizo == -1){
-            throw new PersonajeException("El mago no conoce ese hechizo");
         }
         if (this == personaje){
             throw new PersonajeException("No puedes atacarte a ti mismo ");
@@ -65,6 +63,14 @@ public class Mago extends Personaje {
         if (personaje.getVidaActual()== 0){
             throw new PersonajeException("El personaje esta muerto");
         }
+        hechizos[posHechizo] = null;
+        personaje.setVidaActual(personaje.getVidaActual() - DAÑO_DE_HECHIZO);
     }
 
+    @Override
+    public String toString() {
+        return "Mago{" +
+                "hechizos=" + Arrays.toString(hechizos) +
+                super.toString() +'}';
+    }
 }

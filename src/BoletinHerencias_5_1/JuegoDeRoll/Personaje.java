@@ -14,6 +14,7 @@ public class Personaje {
     private int vidaMax;
     private int vidaActual;
 
+
     public Personaje(String nombre, Raza raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeException {
         this.nombre = nombre;
         this.raza = raza;
@@ -53,11 +54,17 @@ public class Personaje {
     }
 
     public void setVidaActual(int vidaActual) throws PersonajeException {
-        if (vidaActual < VIDA_MIN || vidaActual > vidaMax) {
-            throw new PersonajeException("Valor de la vida no es valida");
+        if (vidaActual < VIDA_MIN) {
+           this.vidaActual = VIDA_MIN;
+        } else if (vidaActual > VIDA_MAX) {
+            this.vidaActual = vidaMax;
+        }else {
+            this.vidaActual = vidaActual;
         }
-        this.vidaActual = vidaActual;
+
     }
+
+
 
     @Override
     public String toString() {
@@ -67,7 +74,6 @@ public class Personaje {
                 ", fuerza=" + fuerza +
                 ", inteligencia=" + inteligencia +
                 ", vidaMax=" + vidaMax +
-                ", vidaActual=" + vidaActual +
-                '}';
+                ", vidaActual=" + vidaActual;
     }
 }
