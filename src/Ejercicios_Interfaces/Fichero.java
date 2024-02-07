@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Fichero {
     private String nombre;
-    private int tamano;
+    private byte tamano;
     private LocalDate fecha;
 
-    public Fichero(String nombre, int tamano, LocalDate fecha) {
+    public Fichero(String nombre, byte tamano, LocalDate fecha) {
         this.nombre = nombre;
         this.tamano = tamano;
         this.fecha = fecha;
@@ -17,11 +17,20 @@ public class Fichero {
         return nombre;
     }
 
-    public int getTamano() {
+    public byte getTamano() {
         return tamano;
     }
 
     public LocalDate getFecha() {
         return fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Fichero{" +
+                "nombre='" + nombre + '\'' +
+                ", tamano=" + tamano +
+                ", fecha=" + fecha +
+                '}';
     }
 }

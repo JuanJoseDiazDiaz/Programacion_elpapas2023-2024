@@ -6,7 +6,7 @@ public class MusicApp {
         MP3Player m = new MP3Player();
         Spotify s = new Spotify();
 
-        MusicPlayer [] musicPlayers = {i, m , s};
+        MusicPlayer [] musicPlayers = {s, i , m};
         System.out.println("Salida: ");
         startMusic(musicPlayers);
     }

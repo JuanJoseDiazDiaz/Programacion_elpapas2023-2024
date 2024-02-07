@@ -3,12 +3,21 @@ package Ejercicios_Interfaces;
 import java.time.LocalDate;
 
 public class FicheroEjecutable extends Fichero{
-    private byte [] contenido;
+    private Byte[] contenido;
     private int permiso;
 
-    public FicheroEjecutable(String nombre, int tamano, LocalDate fecha, byte[] contenido, int permiso) {
+
+    public FicheroEjecutable(String nombre, byte tamano, LocalDate fecha, Byte[] contenido, int permiso) {
         super(nombre, tamano, fecha);
-        this.contenido= contenido;
+        this.contenido = contenido;
         this.permiso = permiso;
+    }
+    @Override
+    public byte getTamano() {
+        return super.getTamano();
+    }
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

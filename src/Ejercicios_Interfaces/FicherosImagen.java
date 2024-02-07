@@ -8,9 +8,17 @@ public class FicherosImagen extends Fichero{
         JPG, PNG;
     }
 
-    public FicherosImagen(String nombre, int tamano, LocalDate fecha, byte[] contenido) {
+    public FicherosImagen(String nombre, byte tamano, LocalDate fecha, byte[] contenido) {
         super(nombre, tamano, fecha);
         this.contenido = contenido;
+    }
+    @Override
+    public byte getTamano() {
+        return super.getTamano();
+    }
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 }
