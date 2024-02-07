@@ -13,8 +13,8 @@ public class FicherosImagen extends Fichero{
         this.contenido = contenido;
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {

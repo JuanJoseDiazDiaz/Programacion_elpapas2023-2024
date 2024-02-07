@@ -15,8 +15,8 @@ public class FicherosBinarios extends Fichero{
         return ficheroByte;
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {

@@ -1,27 +1,33 @@
 package Ejercicios_Interfaces;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Fichero {
     private String nombre;
-    private byte tamano;
-    private LocalDate fecha;
+    private long size;
+    private LocalDateTime fecha;
 
-    public Fichero(String nombre, byte tamano, LocalDate fecha) {
+    public Fichero(String nombre, byte tamano, LocalDateTime fecha) {
         this.nombre = nombre;
-        this.tamano = tamano;
-        this.fecha = fecha;
+        setSize(size);
+        this.fecha = LocalDateTime.now();
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public byte getTamano() {
-        return tamano;
+    public long getSize() {
+        return size;
     }
 
-    public LocalDate getFecha() {
+    public void setSize(long size) {
+        if (size < 1) throw new IllegalArgumentException("El tamaño no puede ser un valor negativo");
+        this.size = size;
+    }
+
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
@@ -29,7 +35,7 @@ public class Fichero {
     public String toString() {
         return "Fichero{" +
                 "nombre='" + nombre + '\'' +
-                ", tamano=" + tamano +
+                ", tamano=" + size +
                 ", fecha=" + fecha +
                 '}';
     }

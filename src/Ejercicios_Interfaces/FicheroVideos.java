@@ -13,8 +13,8 @@ public class FicheroVideos extends Fichero{
         this.duracion = duracion;
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {

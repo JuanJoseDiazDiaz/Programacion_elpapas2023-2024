@@ -15,8 +15,8 @@ public class FicheroAudio extends Fichero{
     }
 
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
 
     @Override

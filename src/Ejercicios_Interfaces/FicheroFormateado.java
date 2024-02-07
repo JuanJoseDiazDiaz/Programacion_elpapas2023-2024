@@ -14,8 +14,8 @@ public class FicheroFormateado extends Fichero {
         this.colorFuente = colorFuente;
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {

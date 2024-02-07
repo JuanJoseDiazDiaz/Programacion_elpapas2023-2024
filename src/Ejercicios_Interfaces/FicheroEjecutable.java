@@ -13,8 +13,8 @@ public class FicheroEjecutable extends Fichero{
         this.permiso = permiso;
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public long getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {

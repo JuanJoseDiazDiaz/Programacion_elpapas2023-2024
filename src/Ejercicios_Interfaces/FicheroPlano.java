@@ -2,17 +2,21 @@ package Ejercicios_Interfaces;
 
 import java.time.LocalDate;
 
-public class FicheroPlano extends Fichero{
+public class FicheroPlano extends FicheroDeTexto{
 
-    public FicheroPlano(String nombre, byte tamano, LocalDate fecha) {
-        super(nombre, tamano, fecha);
+    public FicheroPlano(String nombre, byte tamano, LocalDate fecha, String [] matriz) {
+        super(nombre, tamano, fecha, matriz);
     }
     @Override
-    public byte getTamano() {
-        return super.getTamano();
+    public byte getSize() {
+        return super.getSize();
     }
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public static void imprimirFicheroPlano(){
+
     }
 }
