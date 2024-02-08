@@ -1,14 +1,14 @@
 package Ejercicios_Interfaces;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class FicheroPlano extends FicheroDeTexto{
+public class FicheroPlano extends FicheroDeTexto implements Representable{
 
-    public FicheroPlano(String nombre, byte tamano, LocalDate fecha, String [] matriz) {
-        super(nombre, tamano, fecha, matriz);
+    public FicheroPlano(String nombre, byte [] matriz) {
+        super(nombre, matriz);
     }
     @Override
-    public byte getSize() {
+    public long getSize() {
         return super.getSize();
     }
     @Override
@@ -16,7 +16,13 @@ public class FicheroPlano extends FicheroDeTexto{
         return super.toString();
     }
 
-    public static void imprimirFicheroPlano(){
 
+    @Override
+    public void representar() {
+        for (int i = 0; i < getMatriz().length; i++){
+            if (getMatriz()[i] != null){
+                System.out.println(getMatriz()[i]);
+            }
+        }
     }
 }

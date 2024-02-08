@@ -2,15 +2,15 @@ package Ejercicios_Interfaces;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class FicheroVideos extends Fichero{
+public class FicheroVideos extends Fichero implements Reproducible{
     private byte [] contenido;
     private Time duracion;
 
-    public FicheroVideos(String nombre, byte tamano, LocalDate fecha, byte[] contenido, Time duracion) {
-        super(nombre, tamano, fecha);
+    public FicheroVideos(String nombre, byte[] contenido) {
+        super(nombre);
         this.contenido= contenido;
-        this.duracion = duracion;
     }
     @Override
     public long getSize() {
@@ -21,4 +21,9 @@ public class FicheroVideos extends Fichero{
         return super.toString();
     }
 
+
+    @Override
+    public String reproducir() {
+        return "Reproduciendo: "+ getNombre();
+    }
 }

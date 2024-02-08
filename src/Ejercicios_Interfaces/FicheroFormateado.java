@@ -1,24 +1,27 @@
 package Ejercicios_Interfaces;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class FicheroFormateado extends Fichero {
+public class FicheroFormateado extends Fichero implements Analizable{
     private String tipoFuente;
     private int tamanoFuente;
     private String colorFuente;
 
-    public FicheroFormateado(String nombre, byte tamano, LocalDate fecha, String tipoFuente, int tamanoFuente, String colorFuente) {
-        super(nombre, tamano, fecha);
-        this.tipoFuente = tipoFuente;
-        this.tamanoFuente = tamanoFuente;
-        this.colorFuente = colorFuente;
+    public FicheroFormateado(String nombre) {
+        super(nombre);
     }
     @Override
     public long getSize() {
-        return super.getSize();
+        return 0;
     }
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public String analizable() {
+        return "Analizando: "+ getNombre();
     }
 }

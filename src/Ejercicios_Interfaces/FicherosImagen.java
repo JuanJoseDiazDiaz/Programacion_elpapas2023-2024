@@ -1,16 +1,16 @@
 package Ejercicios_Interfaces;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class FicherosImagen extends Fichero{
     private byte [] contenido;
-    private enum formato {
-        JPG, PNG;
-    }
+    private Tformato tformato;
 
-    public FicherosImagen(String nombre, byte tamano, LocalDate fecha, byte[] contenido) {
-        super(nombre, tamano, fecha);
+    public FicherosImagen(String nombre, byte[] contenido,Tformato tformato) {
+        super(nombre);
         this.contenido = contenido;
+        this.tformato = tformato;
     }
     @Override
     public long getSize() {

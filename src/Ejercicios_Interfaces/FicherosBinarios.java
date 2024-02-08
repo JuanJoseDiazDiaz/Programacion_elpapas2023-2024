@@ -1,17 +1,15 @@
 package Ejercicios_Interfaces;
 
-import java.time.LocalDate;
-
 public class FicherosBinarios extends Fichero{
-    private Byte [] ficheroByte;
+    private byte[] ficheroByte;
 
 
-    public FicherosBinarios(String nombre, byte tamano, LocalDate fecha, Byte [] ficheroByte) {
-        super(nombre, tamano, fecha);
+    public FicherosBinarios(String nombre, byte[] ficheroByte) {
+        super(nombre);
         this.ficheroByte = ficheroByte;
     }
 
-    public Byte[] getFicheroByte() {
+    public byte[] getFicheroByte() {
         return ficheroByte;
     }
     @Override

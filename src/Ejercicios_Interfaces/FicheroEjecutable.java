@@ -1,23 +1,26 @@
 package Ejercicios_Interfaces;
 
-import java.time.LocalDate;
-
-public class FicheroEjecutable extends Fichero{
-    private Byte[] contenido;
+public class FicheroEjecutable extends Fichero implements Analizable{
+    private byte[] contenido;
     private int permiso;
 
 
-    public FicheroEjecutable(String nombre, byte tamano, LocalDate fecha, Byte[] contenido, int permiso) {
-        super(nombre, tamano, fecha);
+    public FicheroEjecutable(String nombre, byte[] contenido, int permiso) {
+        super(nombre);
         this.contenido = contenido;
         this.permiso = permiso;
     }
     @Override
     public long getSize() {
-        return super.getSize();
+        return 0;
     }
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    @Override
+    public String analizable() {
+        return "Analizando: "+ getNombre();
     }
 }
