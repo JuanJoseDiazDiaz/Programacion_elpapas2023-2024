@@ -1,7 +1,5 @@
 package Ejercicios_Interfaces;
 
-import java.time.LocalDateTime;
-
 public class FicheroPlano extends FicheroDeTexto implements Representable{
 
     public FicheroPlano(String nombre, byte [] matriz) {
@@ -15,6 +13,7 @@ public class FicheroPlano extends FicheroDeTexto implements Representable{
     public String toString() {
         return super.toString();
     }
+
 
 
     @Override
