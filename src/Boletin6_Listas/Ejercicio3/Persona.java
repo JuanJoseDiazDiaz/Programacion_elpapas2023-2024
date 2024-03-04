@@ -28,5 +28,14 @@ public abstract class Persona {
         }
         return mensajes.toString();
     }
+    public String leerMensajesOrdenados(){
+        List<Mensaje> bandejaOrdenada2 = new ArrayList<>(bandejaDeEntrada);
+        bandejaOrdenada2.sort(null);
 
+        StringBuilder mensajes = new StringBuilder();
+        for (int i = 0; i < bandejaOrdenada2.size(); i++){
+            mensajes.append("Mensaje : ").append(i + 1).append(": ").append(bandejaOrdenada2.get(i).toString()).append("\n");
+        }
+        return mensajes.toString();
+    }
 }

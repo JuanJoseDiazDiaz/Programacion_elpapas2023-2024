@@ -1,6 +1,7 @@
 package Boletin6_Listas.Ejercicio3;
 
 import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Mensaje {
@@ -34,5 +35,8 @@ public class Mensaje {
                 .append(" Texto: ").append(texto)
                 .append(" Fecha y hora").append(fecha.format(format));
         return mensaje.toString();
+    }
+    public int compareTo(Mensaje mensaje){
+        return fecha.compareTo(mensaje.fecha);
     }
 }
