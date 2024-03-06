@@ -38,4 +38,34 @@ public abstract class Persona {
         }
         return mensajes.toString();
     }
+    public void borrarMensaje (int numero)throws MensajeException{
+        try {
+            bandejaDeEntrada.remove(numero - 1);
+
+        }catch (IndexOutOfBoundsException e){
+
+            throw new MensajeException("No existe ese mensaje");
+        }
+
+    }
+    public String filtrarMensajePorFrase(String frase)throws MensajeException{
+        StringBuilder mensajes = new StringBuilder();
+
+        // bandejaDeEntrada.stream().map(m -> m.getTexto())
+        bandejaDeEntrada.stream().map(m -> m.toString())
+                .filter(m -> m.contains(frase))
+                .forEach(m -> mensajes.append("\n").append(m));
+
+        if (mensajes.isEmpty()) throw new MensajeException("No existen mensajes con esa frase");
+
+        return mensajes.toString();
+    }
+    public String filtrarMensajePorFrasSinFlujo(String frase)throws MensajeException{
+        StringBuilder mensajes = new StringBuilder();
+
+
+        if (mensajes.isEmpty()) throw new MensajeException("No existen mensajes con esa frase");
+
+        return mensajes.toString();
+    }
 }

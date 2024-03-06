@@ -33,6 +33,18 @@ public class main {
         System.out.println(personas.get(0).leerMensajes());
         System.out.println("tras ordenar: ");
         System.out.println(personas.get(0).leerMensajesOrdenados());
+
+        try{
+            personas.get(0).borrarMensaje(-3);
+        } catch (MensajeException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            personas.get(0).filtrarMensajePorFrase("Hola");
+        } catch (MensajeException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
