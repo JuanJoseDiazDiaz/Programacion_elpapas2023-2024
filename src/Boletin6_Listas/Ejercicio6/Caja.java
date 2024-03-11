@@ -6,9 +6,20 @@ import java.util.Queue;
 
 public class Caja {
     private int numCaja;
+
     private boolean cajaAbierta;
 
     private Queue<Integer> cola;
+    public boolean isCajaAbierta() {
+        return cajaAbierta;
+    }
+    public int getClientes() {
+        return cola.size();
+    }
+
+    public int getNumCaja() {
+        return numCaja;
+    }
 
     public Caja(int numCaja) {
         this.numCaja = numCaja;
