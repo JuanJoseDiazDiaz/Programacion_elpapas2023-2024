@@ -17,7 +17,8 @@ public class Hospital {
         boolean posEncontrada = false;
         Iterator<Paciente> it = colaPaciente.iterator();
         while (it.hasNext() && !posEncontrada){
-          Paciente paciente = it.next();
+            colaPaciente.add(nuevoPaciente);
+            Paciente paciente = it.next();
           if ( nuevoPaciente.compareTo(paciente) < 0){
               posEncontrada = true;
           }else {
