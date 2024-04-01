@@ -1,80 +1,89 @@
-package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
-
+package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class Pelicula {
-    private String titulo;
-    private int annoEstreno;
-    private ArrayList<Opinion> opiniones;
-    private HashSet<String> actores;
-
-    public Pelicula(String titulo, int annoEstreno) {
-        super();
-        this.titulo = titulo;
-        this.annoEstreno = annoEstreno;
-        actores= new HashSet<String>();
-        opiniones = new ArrayList<Opinion>();
-    }
-
-    public void annadirOpinion(Opinion opinion) {
-        opiniones.add(opinion);
-    }
-
-    public void annadirActor(String actor) {
-        actores.add(actor);
-    }
+	private String titulo;
 
 
 
-    public double mediaDeOpiniones() {
-        return 0;
-    }
+	private String actor;
+	private int annoEstreno;
+	private ArrayList<Opinion> opiniones;
+	private HashSet<String> actores;
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public Pelicula(String titulo, int annoEstreno) {
+		super();
+		this.titulo = titulo;
+		this.annoEstreno = annoEstreno;
+		actores= new HashSet<String>();
+		opiniones = new ArrayList<Opinion>();
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public void annadirOpinion(Opinion opinion) {
+		opiniones.add(opinion);
+	}
 
-    public int getAnnoEstreno() {
-        return annoEstreno;
-    }
+	public void annadirActor(String actor) {
+		actores.add(actor);
+	}
+	
+	
 
-    public void setAnnoEstreno(int annoEstreno) {
-        this.annoEstreno = annoEstreno;
-    }
+	public double mediaDeOpiniones() {
+		List<Double> opiniones = new ArrayList<>();
+		double sumaOpiniones = opiniones.stream().mapToDouble(Double::doubleValue).sum();
+		return sumaOpiniones / opiniones.size();
+	}
 
-    @Override
-    public String toString() {
-        return "Pelicula [titulo=" + titulo + ", annoEstreno=" + annoEstreno + "]" + " Media de opiniones " + mediaDeOpiniones();
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-        return result;
-    }
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Pelicula other = (Pelicula) obj;
-        if (titulo == null) {
-            if (other.titulo != null)
-                return false;
-        } else if (!titulo.equals(other.titulo))
-            return false;
-        return true;
-    }
+	public int getAnnoEstreno() {
+		return annoEstreno;
+	}
+	public String getActor() {
+		return actor;
+	}
+
+	public void setAnnoEstreno(int annoEstreno) {
+		this.annoEstreno = annoEstreno;
+	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [titulo=" + titulo + ", annoEstreno=" + annoEstreno + "]" + " Media de opiniones " + mediaDeOpiniones();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pelicula other = (Pelicula) obj;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
 
 }

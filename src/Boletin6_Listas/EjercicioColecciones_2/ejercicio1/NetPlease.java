@@ -1,5 +1,6 @@
-package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
+package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
 import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
 
 public class NetPlease {
 
@@ -20,6 +21,7 @@ public class NetPlease {
 		}
 		
 		mapPeliculas.put(tema, new PeliculasDeUnTema(tema));
+		System.out.println("Se ha añadido este tema a esa pelicula: "+tema);
 	}
 	
 
@@ -31,28 +33,36 @@ public class NetPlease {
 			throw new NetPleaseException("No existe el tema " + tema);
 		}
 		listaPeliculasDeUnTema.addPelicula(pelicula);
+		System.out.println("Se ha añadadio esta pelicula: " + pelicula);
 	}
 	
 	public void listadoDeTodasPeliculasDeTodosLosTemas() {
-		
 		for ( PeliculasDeUnTema listaPelisTema: mapPeliculas.values()) {
 			System.out.println(listaPelisTema);
 		}
 	}
 	
-	public void borrarPeliculaDeUnTema( String tema, String titulo) throws NetPleaseException{
-
-	
-		
+	public void borrarPeliculaDeUnTema(String tema, String titulo) throws NetPleaseException{
+		if (!mapPeliculas.containsKey(tema) || !mapPeliculas.containsKey(titulo)){
+			throw new NetPleaseException("No se encuentra ninguna pelicula con ese titulo ni ese tema");
+		}
+		mapPeliculas.remove(tema,titulo);
 	}
 	
 	
 	
 	public String temaDePelicula( String titulo) throws NetPleaseException {
-		
-		
-		return null;
-	}
+		if (!mapPeliculas.containsKey(titulo)){
+			throw new NetPleaseException("No tiene esa pelicula dentro de nuestra base de datos");
+		}
+		if (mapPeliculas.containsKey(titulo)){
+			mapPeliculas.get(titulo);
+		}else{
+			return null;
+		}
+
+        return titulo;
+    }
 	
 
 

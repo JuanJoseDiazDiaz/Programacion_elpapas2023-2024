@@ -1,4 +1,4 @@
-package colecciones.ejercicio1;
+package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
 
 public class Principal {
 
@@ -13,9 +13,6 @@ public class Principal {
 			netPlease.annadirTema("DRAMA");
 			
 			netPlease.addPelicula("COMEDIA", new Pelicula("BAJO EL MISMO TECHO", 2019));
-			
-			
-			
 		} catch (NetPleaseException e) {
 			System.err.println(e.getMessage());
 		}
