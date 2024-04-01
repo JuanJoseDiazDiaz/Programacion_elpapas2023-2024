@@ -5,7 +5,7 @@ public class CromoJugador extends Cromo{
     private String equipoJugado;
     private int alturaJugador;
 
-    public CromoJugador(String id, String nombreJugador, String equipoJugado, int alturaJugador) {
+    public CromoJugador(int id, String nombreJugador, String equipoJugado, int alturaJugador) {
         super(id);
         this.nombreJugador = nombreJugador;
         this.equipoJugado = equipoJugado;
@@ -15,6 +15,11 @@ public class CromoJugador extends Cromo{
     @Override
     public String getEquio() {
         return equipoJugado;
+    }
+
+    @Override
+    public String getNombre() {
+        return nombreJugador;
     }
 
     public String getNombreJugador() {

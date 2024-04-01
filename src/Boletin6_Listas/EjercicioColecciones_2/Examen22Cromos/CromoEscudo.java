@@ -5,7 +5,7 @@ public class CromoEscudo extends Cromo{
     private int yearFundacion;
     private int numJugadores;
 
-    public CromoEscudo(String id, String nombreEquipo, int yearFundacion , int numJugadores) {
+    public CromoEscudo(int id, String nombreEquipo, int yearFundacion , int numJugadores) {
         super(id);
         this.nombreEquipo =nombreEquipo;
         this.yearFundacion = yearFundacion;
@@ -16,6 +16,12 @@ public class CromoEscudo extends Cromo{
     public String getEquio() {
         return nombreEquipo;
     }
+
+    @Override
+    public String getNombre() {
+        return null;
+    }
+
 
     public String getNombreEquipo() {
         return nombreEquipo;

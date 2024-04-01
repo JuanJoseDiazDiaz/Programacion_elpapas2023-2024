@@ -1,13 +1,17 @@
 package Boletin6_Listas.EjercicioColecciones_2.Examen22Cromos;
 
 public abstract class Cromo {
-    private String id;
+    private int id;
 
-    public Cromo(String id) {
+    public Cromo(int id) {
         this.id = id;
     }
 
     public abstract String getEquio();
+    public abstract String getNombre();
+
+
+
 
 
 }
