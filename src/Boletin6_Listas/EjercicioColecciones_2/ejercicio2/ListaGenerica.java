@@ -1,9 +1,6 @@
 package boletinRepasoExamen.Avion.ExamenColecciones.ejercicio2;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class ListaGenerica<T> {
@@ -26,6 +23,16 @@ public class ListaGenerica<T> {
 				return listaElementoBuscado;
 			}
 
+		}
+		return null;
+	}
+
+	public LinkedList<T> elementosMenores(T elementoReferencia){
+		LinkedList<T> listaGenerica = new LinkedList<>();
+		for (T elemento : lista){
+			if (elemento.equals(elementoReferencia)){
+				return listaGenerica;
+			}
 		}
 		return null;
 	}
