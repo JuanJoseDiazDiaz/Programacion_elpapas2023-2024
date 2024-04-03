@@ -1,6 +1,5 @@
-package boletinRepasoExamen.Avion.ExamenColecciones2023;
+package Boletin6_Listas.EjercicioColecciones_2.ExamenColecciones2023;
 
-import boletinRepasoExamen.Avion.ExamenColecciones2023.*;
 
 import java.time.LocalDate;
 
@@ -73,12 +72,12 @@ public class Principal {
         Liga laLiga = new Liga("LaLiga Miravent");
         
         //Consulta que debe fallar, pues no hay equipos en la liga
-        try {
+       /* try {
             System.out.printf("Media de edad de la liga: %.2f\n", laLiga.mediaEdad());
         } catch (LigaException e) {
             System.err.println(e.getMessage());
         }
-        
+        */
         System.out.println("##########");
         
         try {
@@ -146,22 +145,23 @@ public class Principal {
         System.out.println("############");
         //Mostramos los jugadores ordenados por edad
         System.out.println("Jugadores ordenados por edad");
-        laLiga.jugadoresOrdenadosEdad().forEach(System.out::println);
+      //  laLiga.jugadoresOrdenadosEdad().forEach(System.out::println);
         
         System.out.println();
         System.out.println("############");
         //Mostramos los jugadores ordenados por edad
         System.out.println("Jugadores ordenados por nombre");
-        laLiga.jugadoresOrdenadosNombre().forEach(System.out::println);
+    //    laLiga.jugadoresOrdenadosNombre().forEach(System.out::println);
         
         System.out.println();
         System.out.println("############");
+        /*
         try {
-            System.out.printf("Media de edad de la liga: %.2f\n", laLiga.mediaEdad());
+          System.out.printf("Media de edad de la liga: %.2f\n", laLiga.mediaEdad());
         } catch (LigaException e) {
             System.err.println(e.getMessage());
         }
-        
+        */
     }
 
 }

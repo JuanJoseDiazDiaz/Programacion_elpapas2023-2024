@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.ExamenColecciones2023;
+package Boletin6_Listas.EjercicioColecciones_2.ExamenColecciones2023;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

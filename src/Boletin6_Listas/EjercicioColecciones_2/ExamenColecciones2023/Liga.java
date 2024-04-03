@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.ExamenColecciones2023;
+package Boletin6_Listas.EjercicioColecciones_2.ExamenColecciones2023;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +49,10 @@ public class Liga {
                 contadorJugadorRepetidos++;
             }
         }
-        return contadorJugadorRepetidos;
+      //  return contadorJugadorRepetidos;
+        return null;
     }
-    
+   /*
     public double mediaEdad() throws LigaException {
         
     }
@@ -67,7 +68,7 @@ public class Liga {
     private Set<Jugador> todosLosJugadores() {
         
     }
-    
+    */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Bienvenidos a " + nombre).append(System.lineSeparator());

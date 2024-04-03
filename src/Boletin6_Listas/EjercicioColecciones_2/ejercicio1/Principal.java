@@ -1,4 +1,6 @@
-package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
+package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
+
+import boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1.NetPlease;
 
 public class Principal {
 

@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
+package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -32,9 +32,10 @@ public class Pelicula {
 	
 
 	public double mediaDeOpiniones() {
-		List<Double> opiniones = new ArrayList<>();
-		double sumaOpiniones = opiniones.stream().mapToDouble(Double::doubleValue).sum();
-		return sumaOpiniones / opiniones.size();
+		List<Integer> o = new ArrayList<>();
+		// ESTO EN RESUMEN LO QUE HAREMOS ES SUMAR TODOS LOS DATOS, PERO LOS GUARDAMOS DENTRO DE UNA VARIABLE
+		Integer sumaOpiniones = o.stream().mapToInt(d -> d.intValue()).sum();
+		return (double) sumaOpiniones / o.size(); //AQUI DIVIDO EL PROCESO PARA REALIZAR LA MEDIA
 	}
 
 	public String getTitulo() {
@@ -54,6 +55,9 @@ public class Pelicula {
 
 	public void setAnnoEstreno(int annoEstreno) {
 		this.annoEstreno = annoEstreno;
+	}
+	public boolean intervieneActor(String actor) {
+		return actores.contains(actor);
 	}
 
 	@Override

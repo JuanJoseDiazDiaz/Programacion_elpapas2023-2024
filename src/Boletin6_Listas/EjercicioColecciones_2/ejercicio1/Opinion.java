@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
+package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
 
 public class Opinion {
 	private int valoracion;

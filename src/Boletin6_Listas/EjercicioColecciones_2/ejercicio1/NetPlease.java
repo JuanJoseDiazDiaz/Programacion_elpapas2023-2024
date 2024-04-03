@@ -1,6 +1,9 @@
-package boletinRepasoExamen.Avion.EjerciciosRepaso.ExamenColecciones.ejercicio1;
+package Boletin6_Listas.EjercicioColecciones_2.ejercicio1;
+import Boletin6_Listas.EjercicioColecciones_2.ejercicio1.NetPleaseException;
+import Boletin6_Listas.EjercicioColecciones_2.ejercicio1.Pelicula;
+import Boletin6_Listas.EjercicioColecciones_2.ejercicio1.PeliculasDeUnTema;
+
 import java.util.HashMap;
-import java.util.concurrent.TimeoutException;
 
 public class NetPlease {
 
@@ -37,31 +40,37 @@ public class NetPlease {
 	}
 	
 	public void listadoDeTodasPeliculasDeTodosLosTemas() {
-		for ( PeliculasDeUnTema listaPelisTema: mapPeliculas.values()) {
+		for ( PeliculasDeUnTema listaPelisTema : mapPeliculas.values()) {
 			System.out.println(listaPelisTema);
 		}
 	}
 	
 	public void borrarPeliculaDeUnTema(String tema, String titulo) throws NetPleaseException{
-		if (!mapPeliculas.containsKey(tema) || !mapPeliculas.containsKey(titulo)){
+		if (!mapPeliculas.containsKey(tema) ){
 			throw new NetPleaseException("No se encuentra ninguna pelicula con ese titulo ni ese tema");
 		}
-		mapPeliculas.remove(tema,titulo);
+		if (!mapPeliculas.get(tema).borrar(titulo)){
+			throw new NetPleaseException("No existe esa pelicula");
+		}
 	}
 	
 	
 	
-	public String temaDePelicula( String titulo) throws NetPleaseException {
+	public String temaDePelicula(String titulo) throws NetPleaseException {
+		/*
 		if (!mapPeliculas.containsKey(titulo)){
-			throw new NetPleaseException("No tiene esa pelicula dentro de nuestra base de datos");
-		}
-		if (mapPeliculas.containsKey(titulo)){
-			mapPeliculas.get(titulo);
-		}else{
 			return null;
 		}
+		return mapPeliculas.get(titulo).getTema();
+		*/
+		// return mapPeliculas.keySet().stream().filter(p -> mapPeliculas.get(p).buscarPeliculaPorTitulo(titulo) != null).findFirst().orElse(null);
+		 for (String tema : mapPeliculas.keySet()){
+			if (mapPeliculas.get(tema).buscarPeliculaPorTitulo(titulo) != null){
+				return tema;
+			}
 
-        return titulo;
+		}
+		return titulo;
     }
 	
 

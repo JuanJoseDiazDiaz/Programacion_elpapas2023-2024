@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.ExamenColecciones.ejercicio2;
+package Boletin6_Listas.EjercicioColecciones_2.ejercicio2;
 
 import java.util.LinkedList;
 

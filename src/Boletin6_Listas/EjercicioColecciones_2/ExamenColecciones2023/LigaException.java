@@ -1,4 +1,4 @@
-package boletinRepasoExamen.Avion.ExamenColecciones2023;
+package Boletin6_Listas.EjercicioColecciones_2.ExamenColecciones2023;
 
 public class LigaException extends Exception {
 
