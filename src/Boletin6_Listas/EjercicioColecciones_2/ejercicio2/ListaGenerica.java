@@ -3,7 +3,7 @@ package Boletin6_Listas.EjercicioColecciones_2.ejercicio2;
 import java.util.LinkedList;
 
 
-public class ListaGenerica<T> {
+public class ListaGenerica<T extends Comparable<? super T>> {
 
 	private LinkedList<T> lista;
 
@@ -15,10 +15,10 @@ public class ListaGenerica<T> {
 		lista.add(elemento);
 	}
 
-	public LinkedList<T> listaHastaElemento( T elementoBuscado){
-		LinkedList<T> listaElementoBuscado = new LinkedList<>();
+	public ListaGenerica<T> listaHastaElemento(T elementoBuscado){
+		ListaGenerica<T> listaElementoBuscado = new ListaGenerica<>();
 		for (T elemento : lista){
-			listaElementoBuscado.add(elemento);
+			listaElementoBuscado.annadirElemento(elemento);
 			if (elemento.equals(elementoBuscado)){
 				return listaElementoBuscado;
 			}
@@ -27,14 +27,14 @@ public class ListaGenerica<T> {
 		return null;
 	}
 
-	public LinkedList<T> elementosMenores(T elementoReferencia){
-		LinkedList<T> listaGenerica = new LinkedList<>();
+	public ListaGenerica<T> elementosMenores(T elementoReferencia){
+		ListaGenerica<T> listaGenerica = new ListaGenerica<>();
 		for (T elemento : lista){
-			if (elemento.equals(elementoReferencia)){
-				return listaGenerica;
+			if (elemento.compareTo(elementoReferencia) < 0){
+				listaGenerica.annadirElemento(elementoReferencia);
 			}
 		}
-		return null;
+		return listaGenerica.lista.isEmpty()? null : listaGenerica;
 	}
 
 
@@ -44,7 +44,7 @@ public class ListaGenerica<T> {
 	public String toString() {
 		return "ListaGenerica=" + lista ;
 	}
-	
-	
-	
+
+
+
 }
