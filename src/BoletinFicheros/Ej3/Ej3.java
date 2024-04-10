@@ -1,17 +1,13 @@
-package Ej3;
+package BoletinFicheros.Ej3;
 
 import java.io.*;
 
 public class Ej3 {
     public static void main(String[] args) {
-        BufferedReader inputStream = null;
-        PrintWriter outputStream = null;
-        try {
-            inputStream = new BufferedReader(new FileReader(".\\src\\BoletinFicheros\\fichero.txt"));
-            outputStream = new PrintWriter(new FileWriter(".\\src\\BoletinFicheros\\salidaEj3.txt"));
+        try ( BufferedReader inputStream = new BufferedReader(new InputStreamReader(System.in));
+              PrintWriter outputStream = new PrintWriter(new FileWriter(".\\src\\BoletinFicheros\\salidaEj3.txt", true ));){
             String l;
-            while (!(l = inputStream.readLine()).equals("fin") && (l = inputStream.readLine()) != null ) {
-                System.out.println(l);
+            while (!(l = inputStream.readLine()).equals("fin")) {
                 outputStream.println(l);
             }
         } catch (IOException e) {
