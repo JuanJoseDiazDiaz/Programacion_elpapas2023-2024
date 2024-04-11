@@ -4,6 +4,9 @@ import boletin4.MiEntradaSalida2;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class Ej5 {
     public static void main(String[] args) {
@@ -68,18 +71,63 @@ public class Ej5 {
     public static void borrarFichero() {
         String nombreArchivo = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre");
         File archivoBorrar = new File(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
-        if (archivoBorrar.exists()){
-            if (archivoBorrar.isFile()){
-                System.out.println("No se ha borrado el fichero porque ya hay un directorio con el mismo nombre");
+        if (!archivoBorrar.exists()) {
+            System.out.println("El nombre del fichero no existe");
+        } else {
+            if (archivoBorrar.delete()) {
+                System.out.println("Se ha borrado, el fichero o directorio: " + archivoBorrar.getName());
+            } else {
+                System.out.println("El fichero no ha podido ser borrado");
             }
         }
-        if (archivoBorrar.delete()) {
-            System.out.println("Se ha borrado, el fichero o directorio: " + archivoBorrar.getName());
-        }
+
     }
+
     public static void mostrarTodosLosFichero() {
         String nombreArchivo = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre");
-        File archivo = new File(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
+        File directorio = new File(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
+        if (directorio.exists()) {
+            if (directorio.isDirectory()) {
+                File[] fichero = directorio.listFiles();
+                if (fichero.length > 0) {
+                    for (File fich : fichero) {
+                        System.out.println("Nombre Fichero: " + fich.getName());
+                    }
+                } else {
+                    System.out.println("El directorio esta vacio");
+                }
+            }
+        } else {
+            System.out.println("El nombre del directorio no existe");
+        }
+    }
 
+    public static void mostrarTodosLosFichero2() {
+        String nombreArchivo = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre");
+        File directorio = new File(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
+        if (directorio.exists()) {
+            if (directorio.isDirectory()) {
+                File[] ficheros = directorio.listFiles(File::isFile);
+                if (ficheros.length > 0) {
+                    for (File fich : ficheros) {
+                        System.out.println("Nombre Fichero: " + fich.getName());
+                    }
+                } else {
+                    System.out.println("El directorio esta vacio");
+                }
+            }
+        } else {
+            System.out.println("El nombre del directorio no existe");
+        }
+    }
+
+    public static void mostrarTodosLosFichero3() throws IOException {
+        String nombreArchivo = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre");
+        Path path = Paths.get(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
+        if (Files.exists(path) && Files.isDirectory(path)){
+            Files.list(path).filter(Files::isRegularFile).forEach(System.out::println);
+        }else {
+            System.out.println("El nombre del directorio no existe");
+        }
     }
 }

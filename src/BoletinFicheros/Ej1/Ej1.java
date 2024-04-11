@@ -1,4 +1,4 @@
-package BoletinFicheros;
+package BoletinFicheros.Ej1;
 import java.io.*;
 
 public class Ej1 {
