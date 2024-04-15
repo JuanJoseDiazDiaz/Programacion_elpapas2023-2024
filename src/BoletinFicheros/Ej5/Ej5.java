@@ -13,7 +13,7 @@ public class Ej5 {
         int opcion;
         do {
             menu();
-            opcion = MiEntradaSalidaLectora.Lectora.leerEnteroDeRango("Elige una opcion", 5, 0);
+            opcion = MiEntradaSalidaLectora.Lectora.leerEnteroDeRango("Elige una opcion", 6, 0);
             switch (opcion) {
                 case 1:
                     crearDirectorio();
@@ -24,6 +24,11 @@ public class Ej5 {
                 case 3:
                     borrarFichero();
                     break;
+                case 4:
+                    mostrarTodosLosFichero2();
+                    break;
+                case 5:
+                    break;
             }
         } while (opcion != 5);
     }
@@ -33,7 +38,8 @@ public class Ej5 {
         System.out.println("2. Crear fichero Texto");
         System.out.println("3. Borrar Fichero de texto");
         System.out.println("4. Mostar los ficheros que contiene una carpeta");
-        System.out.println("5. salir");
+        System.out.println("5. Mostar los ficheros que contiene una carpeta y su peso ");
+        System.out.println("6. salir");
     }
 
     public static void crearDirectorio() {
@@ -124,10 +130,11 @@ public class Ej5 {
     public static void mostrarTodosLosFichero3() throws IOException {
         String nombreArchivo = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre");
         Path path = Paths.get(".\\src\\BoletinFicheros\\Ej5 " + nombreArchivo);
-        if (Files.exists(path) && Files.isDirectory(path)){
+        if (Files.exists(path) && Files.isDirectory(path)) {
             Files.list(path).filter(Files::isRegularFile).forEach(System.out::println);
-        }else {
+        } else {
             System.out.println("El nombre del directorio no existe");
         }
     }
+
 }
