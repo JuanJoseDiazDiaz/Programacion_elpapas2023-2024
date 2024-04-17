@@ -36,6 +36,18 @@ public class Lectora {
         return leerDouble;
     }
 
+
+            public static String leerCadena(String mensaje){
+                System.out.println(mensaje + ":");
+                String cadena = null;
+                do {
+                    cadena = sc.nextLine();
+                }while(cadena.isEmpty());
+
+                return cadena;
+            }
+
+
     public static int leerEnteroDeRango(String mensaje, int numMax, int nunMin) {
         int opcionIntroducido = 0;
         boolean enRango = false;

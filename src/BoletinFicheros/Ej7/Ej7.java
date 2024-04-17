@@ -26,10 +26,13 @@ public class Ej7 {
                     listarPorExtension();
                     break;
                 case 3:
+                    buscarArchivo();
                     break;
                 case 4:
+                    buscarArchivoRecursivo();
                     break;
                 case 5:
+                    System.out.println("Adiosss!");
                     break;
             }
         } while (opcion != 5);
@@ -73,5 +76,58 @@ public class Ej7 {
             System.out.println("Ocurrio un error al acceder al fichero");
         }
 
+    }
+
+    public static void buscarArchivo() {
+        String archivoBuscado = MiEntradaSalidaLectora.Lectora.leerCadena("¿Qué archivo quieres buscar? ");
+        Path directorio = Paths.get(".\\src\\Ej7");
+        try (Stream<Path> fichero = Files.list(directorio)) {
+            fichero.filter(archivo -> archivo.getFileName().toString().equals(archivoBuscado))
+                    .filter(Files::isRegularFile)
+                    .forEach(a -> {
+                        try {
+                            System.out.println(a.getFileName() + "  " + Files.size(a) / 1024 + " KB");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void buscarArchivoRecursivo() {
+        String palabraBuscada = MiEntradaSalidaLectora.Lectora.leerCadena("Introduce la palabra: ");
+        Path dir = directorio.toPath();
+        buscarArchivoConcreto(palabraBuscada, dir);
+    }
+
+    public static void buscarArchivoConcreto(String nombre, Path directorio) {
+        try (Stream<Path> ficheros = Files.list(directorio)){
+            ficheros.sorted((directorios, fichero) -> {
+                        if (Files.isRegularFile(directorios) && Files.isRegularFile(fichero)){
+                            return -1;
+                        }else if (Files.isRegularFile(fichero) && Files.isRegularFile(directorios)){
+                            return 1;
+                        }else {
+                            return 0;
+                        }
+                    })
+                    .forEach(a ->{
+                if (Files.isDirectory(a)){
+                    buscarArchivoConcreto(nombre, a);
+                }else {
+                    if (a.endsWith(Paths.get(nombre))){
+                        try {
+                            System.out.println(a.toAbsolutePath() +  " - " + Files.size(a) /1024 + "KB");
+                        } catch (IOException e) {
+                            System.out.println("Ocurrio un error al acceder al fichero");
+                        }
+                    }
+                }
+            });
+        } catch (IOException e) {
+            System.out.println("Ocurrio un error al acceder al fichero");
+        }
     }
 }
