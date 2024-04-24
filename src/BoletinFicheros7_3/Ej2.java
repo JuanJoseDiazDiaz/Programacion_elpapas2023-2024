@@ -48,15 +48,28 @@ public class Ej2 {
             for (int i = 0; i < todosLosDiv.getLength(); i++){
                 Element element = (Element) todosLosDiv.item(i);
                 if (element.getAttribute("class").equals("noticia")){
-                   String titular = element.getElementsByTagName("h2").item(0).getTextContent();
+                    String titular = element.getElementsByTagName("h2").item(0).getTextContent();
                     System.out.println("Este es el titular de la noticia: "+ titular);
                     String textoAlT =((Element) element.getElementsByTagName("img").item(0)).getAttribute("alt");
                     System.out.println("Este es el texto alternativo de la imagen: "+ textoAlT);
-
-
                 }
-
             }
+
+            NodeList todosLosDivMenu = documento.getElementsByTagName("div");
+            for (int i = 0; i < todosLosDivMenu.getLength(); i++){
+                Element element = (Element) todosLosDivMenu.item(i);
+                if (element.getAttribute("id").equals("menu-principal")){
+                    NodeList todosLosUl = element.getElementsByTagName("ul");
+                    for (int j = 0; j < todosLosUl.getLength(); j++){
+                        if (element.getAttribute("class").equals("lista-menu")) {
+                            String opcionesMenu = element.getElementsByTagName("li").item(0).getTextContent();
+                            System.out.println(opcionesMenu);
+                        }
+                    }
+                }
+            }
+
+
 
 
 
