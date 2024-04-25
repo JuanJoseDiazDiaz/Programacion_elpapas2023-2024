@@ -1,4 +1,4 @@
-package Boletin7_XML;
+package BoletinFicheros7_3.Boletin7_XML;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,15 +16,15 @@ public class Ej2 {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document documento = db.parse(".\\src\\Boletin7_XML\\web1.html");
+            Document documento = db.parse(".\\src\\BoletinFicheros7_3\\Boletin7_XML\\web1.html");
 
             Element e = documento.getDocumentElement();
 
             Element titulo = (Element) e.getElementsByTagName("title").item(0);
-            System.out.println("Este es el nombre del titulo de la pagWeb: " + titulo.getTextContent());
+            System.out.println("Este es el nombre del titulo de la pagWeb: " + titulo.getTextContent() + "\n");
 
             NodeList div = documento.getElementsByTagName("div");
-            System.out.println("Numero de div de la pagWeb: " + div.getLength());
+            System.out.println("Numero de div de la pagWeb: " + div.getLength() + "\n");
 
             NodeList divValores = documento.getElementsByTagName("div");
             int contDivValores = 0;
@@ -34,13 +34,13 @@ public class Ej2 {
                     contDivValores++;
                 }
             }
-            System.out.println("Numero de div con valores de la pagWeb: " + contDivValores);
+            System.out.println("Numero de div con valores de la pagWeb: " + contDivValores + "\n");
 
             NodeList imgValores = documento.getElementsByTagName("img");
             for (int i = 0; i < imgValores.getLength(); i++) {
                 Element element = (Element) imgValores.item(i);
                 if (!element.getAttribute("alt").isBlank()) {
-                    System.out.println("El texto es el siguiente: " + element.getAttribute("alt"));
+                    System.out.println("El texto es el siguiente: " + element.getAttribute("alt") + "\n");
                 }
             }
 
@@ -51,22 +51,17 @@ public class Ej2 {
                     String titular = element.getElementsByTagName("h2").item(0).getTextContent();
                     System.out.println("Este es el titular de la noticia: " + titular);
                     String textoAlT = ((Element) element.getElementsByTagName("img").item(0)).getAttribute("alt");
-                    System.out.println("Este es el texto alternativo de la imagen: " + textoAlT);
+                    System.out.println("Este es el texto alternativo de la imagen: " + textoAlT + "\n");
                 }
             }
 
-            NodeList todosLosDivMenu = documento.getElementsByTagName("div");
-            for (int i = 0; i < todosLosDivMenu.getLength(); i++) {
-                Element element = (Element) todosLosDivMenu.item(i);
+            todosLosDiv = documento.getElementsByTagName("div");
+            for (int i = 0; i < todosLosDiv.getLength(); i++) {
+                Element element = (Element) todosLosDiv.item(i);
                 if (element.getAttribute("id").equals("menu-principal")) {
                     NodeList liElements = element.getElementsByTagName("li");
                     for (int j = 0; j < liElements.getLength(); j++) {
-                        Node liNode = liElements.item(j);
-                        if (liNode != null && liNode.getNodeType() == Node.ELEMENT_NODE) { // verificar si el nodo actual es un nodo de elemento válido
-                            Element liElement = (Element) liNode;   // convierte el nodo a un elemento
-                            String textoLi = liElement.getTextContent(); // obtiene el contenido de texto del elemento <li>
-                            System.out.println("esta son las opciones:  " + textoLi);
-                        }
+                        System.out.println("esta son las opciones:  " + liElements.item(j).getTextContent());
                     }
                     /*for (int j = 0; j < todosLosUl.getLength(); j++){
                         if (element.getAttribute("class").equals("lista-menu")) {
@@ -79,14 +74,13 @@ public class Ej2 {
                 }
             }
 
-            NodeList todosLosDiv2 = documento.getElementsByTagName("div");
-            for (int i = 0; i < todosLosDiv2.getLength(); i++) {
-                Element element = (Element) todosLosDiv2.item(i);
-                if (element.getAttribute("class").equals("noticia")) {
+            for (int i = 0; i < todosLosDiv.getLength(); i++) {
+                Element element = (Element) todosLosDiv.item(i);
+                if (element.getAttribute("class").matches("\\bnoticia\\b")) {
                     String titular = element.getElementsByTagName("h2").item(0).getTextContent();
                     System.out.println("Este es el titular de la noticia: " + titular);
-                    String textoParrafo = ((Element)element.getElementsByTagName("p").item(0)).getTextContent();
-                    System.out.println("Este es el texto alternativo de la noticia: " + textoParrafo);
+                    String textoParrafo = element.getElementsByTagName("p").item(0).getTextContent();
+                    System.out.println("Este es el texto alternativo de la noticia: " + textoParrafo + "\n");
                 }
             }
 
