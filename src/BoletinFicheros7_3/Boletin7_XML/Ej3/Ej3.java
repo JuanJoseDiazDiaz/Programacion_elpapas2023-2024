@@ -92,7 +92,7 @@ public class Ej3 {
             // 3º Establecemos algunas opciones de salida, como por ejemplo, la codificación
             // de salida.
 
-            //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 
@@ -122,13 +122,14 @@ public class Ej3 {
 
                         if (calories > 500) {
                             platoMaxCalories.getParentNode().removeChild(platoMaxCalories);
+                            i--;
                         }
                     }
                 }
             }
 
 
-            File file = new File(".\\src\\BoletinFicheros7_3\\Boletin7_XML\\Ej3\\desayuno2.html");
+            File file = new File(".\\src\\BoletinFicheros7_3\\Boletin7_XML\\Ej3\\desayuno3.html");
 
             // 2º Creamos una nueva instancia del transformador a través de la fábrica de
             // transformadores.
@@ -138,14 +139,14 @@ public class Ej3 {
             // 3º Establecemos algunas opciones de salida, como por ejemplo, la codificación
             // de salida.
 
-            //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 
             // 4º Creamos el StreamResult, que intermediará entre el transformador y el
             // archivo de destino.
 
-            StreamResult results = new StreamResult(f);
+            StreamResult results = new StreamResult(file);
 
             // 5º Creamos el DOMSource, que intermediará entre el transformador y el árbol
             // DOM.
@@ -154,7 +155,7 @@ public class Ej3 {
 
             // 6º Realizamos la transformación.
 
-            transformer.transform(sources, result);
+            transformer.transform(sources, results);
 
 
 
