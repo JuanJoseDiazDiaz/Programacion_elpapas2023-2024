@@ -43,8 +43,7 @@ public class Ej_ExamenReG {
         try(Stream<Path> flujo = Files.list(origen)){
             flujo.filter(path -> {
                 try {
-
-                    if (Files.size(path) > 1024 && Files.isRegularFile(origen) && path.endsWith(".txt")){
+                    if (Files.size(path) > 1024 && Files.isRegularFile(origen) && path.getFileName().toString().endsWith(".txt")){
                        try (BufferedReader br = Files.newBufferedReader(path)){
                            if (br.readLine().toLowerCase().startsWith("copiar")){
                                return true;
