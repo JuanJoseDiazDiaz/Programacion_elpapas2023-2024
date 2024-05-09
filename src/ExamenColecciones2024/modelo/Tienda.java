@@ -53,11 +53,7 @@ public class Tienda {
 
     }
 
-    /**
-     * Devuelve un conjunto con aquellas categorías que contienen algún producto sin stock
-     *
-     * @return
-     */
+
     public Set<Categoria> categoriasConProductosSinStock() {
         Set<Categoria> conjuntoCategorias = new HashSet<>();
         categorias.stream().filter(categoria -> {
@@ -71,12 +67,7 @@ public class Tienda {
         return conjuntoCategorias;
     }
 
-    /**
-     * Devuelve un conjunto con las categorías a las que pertenece un producto determinado
-     *
-     * @param p
-     * @return
-     */
+
     public Set<Categoria> categoriasDeProducto(Producto p) {
         Set<Categoria> conjuntoCategorias = new HashSet<>();
         categorias.stream().filter(categoria -> {
@@ -88,22 +79,13 @@ public class Tienda {
         return conjuntoCategorias;
     }
 
-    /**
-     * Devuelve un listado con todos los productos de la tienda (sin repetir) ordenados por precio de mayor a menor
-     *
-     * @return
-     */
+
     public List<Producto> getTodosLosProductosOrdenadosPorPrecio() {
         List<Producto> productos = new ArrayList<>();
         return (List<Producto>) productos.stream().sorted((a, b) -> (int) (b.getPrecio() - a.getPrecio()));
     }
 
-    /**
-     * Elimina un producto de todas las categorías donde aparezca.
-     *
-     * @param p
-     * @return true si el producto aparecía en alguna categoría
-     */
+
     public boolean eliminaProducto(Producto p) {
         boolean eliminado = false;
         for (Categoria c : categorias) {
@@ -120,11 +102,7 @@ public class Tienda {
         return eliminado;
     }
 
-    /**
-     * Devuelve un conjunto con aquellos productos que han sido añadido en el último año (a partir de la fecha actual)
-     *
-     * @return
-     */
+
     public Set<Producto> productosUltimoAnno() {
         HashSet<Producto> productos = new HashSet<>();
         productos.stream().filter(p -> {
