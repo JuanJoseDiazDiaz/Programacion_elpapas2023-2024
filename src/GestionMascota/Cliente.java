@@ -10,6 +10,9 @@ public class Cliente {
         this.idCliente = cont++;
     }
 
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
 }
 
 

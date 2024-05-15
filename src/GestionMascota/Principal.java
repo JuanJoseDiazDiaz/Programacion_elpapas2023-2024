@@ -2,6 +2,7 @@ package GestionMascota;
 
 import boletin1Arrays.MiEntradaSalida;
 
+import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -10,15 +11,25 @@ public class Principal {
     private static Tienda tienda = new Tienda("AnimalCrossing");
 
     public static void main(String[] args) {
+        addCliente();
+        addMascota();
+    }
 
+    public static void addCliente() {
+        tienda.addCliente(MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre del cliente: "));
     }
 
     public static void addMascota() {
-        String nombre = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombe de la mascota: ");
+        String nombre = MiEntradaSalidaLectora.Lectora.solicitarCadenaMinus("introduce el nombre de la mascota: ");
         int edad = MiEntradaSalidaLectora.Lectora.leerEnteroPositivo("introduce la edad de la mascota: ");
-        double precio = MiEntradaSalidaLectora.Lectora.leerEnteroPositivo("introduce la edad de la mascota: ");
-        Especie tipoEspecie = MiEntradaSalidaLectora.Lectora.leerEnum("introduce las especies: ", Especie.values());
-
+        double precio = MiEntradaSalidaLectora.Lectora.leerEnteroPositivo("introduce el precio de la mascota: ");
+        Especie tipoEspecie = MiEntradaSalidaLectora.Lectora.leerEnum("Que tipo de especies es: ", Especie.values());
+        boolean disponible = MiEntradaSalidaLectora.Lectora.leerCaracterSN("¿esta disponible para la venta?") == 'S';
+        tienda.addMascota(nombre, tipoEspecie, edad, precio, disponible);
     }
 
+    public static void addCompra(){
+        List<Cliente> clientes = tienda.getListaDeClientes();
+        Cliente c = MiEntradaSalidaLectora.Lectora.leerOpciones("selecciona el cliente: ", clientes.stream().map(cliente -> cliente.toString()).toArray());
+    }
 }
