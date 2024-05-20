@@ -47,8 +47,20 @@ public class Tienda {
 
     }
 
-    public List<Mascotas> listasDeMascotasDisponibles(){
+    public List<Mascotas> listasDeMascotasDisponibles() {
         return listaDeMascotas.stream().filter(mascotas -> mascotas.isDisponible()).toList();
     }
+
+    public List<Compra> listarComprasClientes(Cliente cliente) {
+       return listaDeCompras.stream().filter(compra -> {
+            return compra.getCliente().equals(cliente) && compra.getFecha_compraDevolucion() == null;
+        }).toList();
+    }
+
+    public void checkCompra(Compra compra){
+        compra.marcarDevuelta(compra);
+        compra.getMascota().setDisponible(true);
+    }
+
 
 }

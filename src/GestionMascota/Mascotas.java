@@ -23,4 +23,15 @@ public class Mascotas {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    @Override
+    public String toString() {
+        return "Mascotas{" +
+                "nombreMascota='" + nombreMascota + '\'' +
+                ", tipoEspecie=" + tipoEspecie +
+                ", edad=" + edad +
+                ", precio=" + precio +
+                ", disponible=" + disponible +
+                '}';
+    }
 }
