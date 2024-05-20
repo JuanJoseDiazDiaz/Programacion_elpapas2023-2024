@@ -40,8 +40,15 @@ public class Tienda {
         listaDeMascotas.add(mascotas1);
     }
 
-    public void comprarMascota(Cliente cliente, Mascotas mascota, LocalDateTime fecha_hora) {
-        Compra compra = new Compra(mascota, cliente, fecha_hora);
+    public void comprarMascota(Cliente cliente, Mascotas mascota) {
+        Compra compra = new Compra(mascota, cliente);
         listaDeCompras.add(compra);
+        mascota.setDisponible(false);
+
     }
+
+    public List<Mascotas> listasDeMascotasDisponibles(){
+        return listaDeMascotas.stream().filter(mascotas -> mascotas.isDisponible()).toList();
+    }
+
 }

@@ -29,7 +29,10 @@ public class Principal {
     }
 
     public static void addCompra(){
-        List<Cliente> clientes = tienda.getListaDeClientes();
-        Cliente c = MiEntradaSalidaLectora.Lectora.leerOpciones("selecciona el cliente: ", clientes.stream().map(cliente -> cliente.toString()).toArray());
+        List<Cliente> clientes =  tienda.getListaDeClientes();
+        List<Mascotas> mascotas =  tienda.listasDeMascotasDisponibles();
+        Cliente c = MiEntradaSalidaLectora.Lectora.leerEnum("selecciona el cliente: ", clientes.toArray(Cliente[]::new));
+        Mascotas m = MiEntradaSalidaLectora.Lectora.leerEnum("Seleccione a la mascota: ", mascotas.toArray(Mascotas[]::new));
+        tienda.comprarMascota(c, m);
     }
 }

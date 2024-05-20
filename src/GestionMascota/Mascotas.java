@@ -19,4 +19,8 @@ public class Mascotas {
     public boolean isDisponible() {
         return disponible;
     }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
 }
