@@ -6,10 +6,13 @@ import java.util.List;
 public class Granja {
     private String nombreGranja;
     private List<Animal> listaAnimales;
+    private List<Transacciones> listTransacciones;
+    private  List<ProductosAgricolas> listaProductosAgricolas;
 
     public Granja(String nombreGranja) {
         this.nombreGranja = nombreGranja;
         this.listaAnimales = new ArrayList<>();
+        this.listaProductosAgricolas = new ArrayList<>();
     }
 
     public List<Animal> getListaAnimales() {
@@ -42,6 +45,42 @@ public class Granja {
             }
         }
         System.out.println("Animal no encontrado: " + a.getNombreAnimal());
+    }
+
+    // TODO -> PARTE PRODUCTOS
+    public List<ProductosAgricolas> listaProductosAgricolas() {
+        return listaProductosAgricolas;
+    }
+
+    public void registrarPrecio2(ProductosAgricolas p) {
+        for (ProductosAgricolas productosAgricolas : listaProductosAgricolas) {
+            if (productosAgricolas.equals(p)) {
+                productosAgricolas.registrarPrecio();
+                System.out.println("Alimentación registrada para " + p.getNombreProducto());
+                return;
+            }
+        }
+        System.out.println("Animal no encontrado: " + p.getNombreProducto());
+    }
+
+    public void checkCantidad(ProductosAgricolas p) {
+        for (ProductosAgricolas productosAgricolas : listaProductosAgricolas) {
+            if (productosAgricolas.equals(p)) {
+                p.registrarCantidadDispoble();
+                System.out.println("Chequeo registrado para " + p.getNombreProducto());
+                return;
+            }
+        }
+        System.out.println("Animal no encontrado: " + p.getNombreProducto());
+    }
+
+    public void addProducto(String nombreProducto, Productos tipoProducto, int cantDisponible, double precio) {
+        ProductosAgricolas p = new ProductosAgricolas(nombreProducto, tipoProducto, cantDisponible, precio);
+        listaProductosAgricolas.add(p);
+    }
+
+    public List<ProductosAgricolas> listaProductosDisponible() {
+        return listaProductosAgricolas.stream().filter(ProductosAgricolas::isDisponible).toList();
     }
 
 }

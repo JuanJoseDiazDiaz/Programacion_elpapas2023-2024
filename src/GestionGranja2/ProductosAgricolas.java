@@ -31,7 +31,7 @@ public class ProductosAgricolas {
     }
 
     public boolean isDisponible() {
-        return disponible;
+        return cantDisponible > 0;
     }
 
     public void setCantDisponible(int cantDisponible) {
@@ -59,6 +59,22 @@ public class ProductosAgricolas {
         listaRegistroCantidad.add("La cantidad disponible es: " + getCantDisponible() + " ,La fecha actual es: " + getFecha());
     }
 
+    public void repornerUnidades(int cantDisponible) throws ProductosAgricolasException {
+        if (cantDisponible < 0){
+            throw new ProductosAgricolasException("Error!, valor no valido");
+        }
+        this.cantDisponible += cantDisponible;
+    }
+
+    public void comprarUnidades(int comprarUnidades) throws ProductosAgricolasException {
+        if (comprarUnidades < 0){
+            throw new ProductosAgricolasException("Error!, valor no valido");
+        }
+        if (comprarUnidades > cantDisponible){
+            throw new ProductosAgricolasException("No hay suficiente stock");
+        }
+        this.cantDisponible -= comprarUnidades;
+    }
 
 
         @Override

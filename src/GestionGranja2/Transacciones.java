@@ -4,17 +4,20 @@ package GestionGranja2;
 import java.time.LocalDateTime;
 
 public class Transacciones {
-    private int idTransacciones;
-    private Animal animal;
+    private int numeroUnidades;
+    private double precio;
     private ProductosAgricolas productosAgricolas;
     private LocalDateTime fecha_transaccion;
 
-    public Transacciones(int idTransacciones, Animal animal, ProductosAgricolas productosAgricolas) {
-        this.idTransacciones = idTransacciones;
-        this.animal = animal;
+    public Transacciones(ProductosAgricolas productosAgricolas, int numeroUnidades) {
         this.productosAgricolas = productosAgricolas;
+        this.numeroUnidades = numeroUnidades;
+        this.precio = productosAgricolas.getPrecio();
         this.fecha_transaccion = LocalDateTime.now();
     }
 
+    public double getTotalTransaccion(){
+        return numeroUnidades * precio;
+    }
 
 }
