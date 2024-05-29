@@ -20,7 +20,7 @@ public class Granja {
     }
 
 
-    public void addAnimal(int idAnimal,String nombreAnimal, AnimalesGranja animalesGranja, String tipoAlimentacion, int edad, int salud){
+    public void addAnimal(int idAnimal,String nombreAnimal, AnimalesGranja animalesGranja, String tipoAlimentacion, int edad, int salud) throws AnimalException {
         Animal a = new Animal(idAnimal,nombreAnimal, animalesGranja, tipoAlimentacion, edad, salud);
         listaAnimales.add(a);
     }
@@ -82,5 +82,7 @@ public class Granja {
     public List<ProductosAgricolas> listaProductosDisponible() {
         return listaProductosAgricolas.stream().filter(ProductosAgricolas::isDisponible).toList();
     }
+
+
 
 }

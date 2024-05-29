@@ -16,12 +16,12 @@ public class Animal {
     private List<String> listaRegistroAlimentacion;
     private List<String> listaRegistroChequeos;
 
-    public Animal(int idAnimal, String nombreAnimal, AnimalesGranja animalesGranja, String tipoAlimentacion, int edad, int salud) {
+    public Animal(int idAnimal, String nombreAnimal, AnimalesGranja animalesGranja, String tipoAlimentacion, int edad, int salud) throws AnimalException {
         this.idAnimal = idAnimal;
         this.nombreAnimal = nombreAnimal;
         this.animalesGranja = animalesGranja;
         this.tipoAlimentacion = tipoAlimentacion;
-        this.edad = edad;
+        setEdad(edad);
         this.salud = salud;
         this.listaRegistroAlimentacion = new ArrayList<>();
         this.listaRegistroChequeos = new ArrayList<>();
@@ -64,6 +64,13 @@ public class Animal {
 
     public LocalDateTime getFecha() {
         return fecha;
+    }
+
+    public void setEdad(int edad) throws AnimalException{
+        if (edad < 0){
+            throw new AnimalException("Edad Incorrecta");
+        }
+        this.edad = edad;
     }
 
     @Override
