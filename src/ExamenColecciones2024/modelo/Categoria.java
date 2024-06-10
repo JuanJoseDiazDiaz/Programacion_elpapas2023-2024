@@ -1,40 +1,82 @@
 package ExamenColecciones2024.modelo;
 
+import ExamenColecciones2024.excepciones.TiendaException;
 
-import ExamenColecciones2024.excepciones.CategoriasProductosException;
-
-import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Categoria {
     private String nombre;
-    private Set<Producto> productos;
+    private Set<Producto> productoSet;
 
     public Categoria(String nombre) {
         this.nombre = nombre;
+        this.productoSet = new HashSet<>();
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public void setNombre(String nombre) throws TiendaException {
+        this.nombre = nombre;
+    }
 
-    public boolean soniguales() throws CategoriasProductosException {
-        boolean iguales = true;
-        for (Producto producto : productos){
-            if (producto.getMarca().equals(producto.getModelo())){
-             throw new CategoriasProductosException("Producto repetido, Error!");
-            }else{
-                iguales = false;
+    public Set<Producto> getProductoSet() {
+        return productoSet;
+    }
+
+    public void setProductoSet(Set<Producto> productoSet) {
+        this.productoSet = productoSet;
+    }
+
+    public void addProducto(Producto producto) {
+        productoSet.add(producto);
+    }
+
+    public boolean productoSinStock(){
+        for (Producto producto : productoSet){
+            if (producto.getStock() == 0){
+               return true;
             }
         }
-        return iguales;
+        return false;
     }
 
-    public void eleminaProducto(Producto producto){
-        productos.remove(producto);
+    public boolean buscarProductoCategoria(Producto producto){
+        for (Producto producto1 : productoSet){
+            if (productoSet.equals(producto)){
+               return true;
+            }
+        }
+        return false;
     }
-    public void annadirProducto(Producto producto){
-        productos.add(producto);
+
+    public boolean borrarProducto(Producto p){
+        return productoSet.remove(p);
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categoria categoria = (Categoria) o;
+        return Objects.equals(nombre, categoria.nombre) && Objects.equals(productoSet, categoria.productoSet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, productoSet);
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "nombre='" + nombre + '\'' +
+                ", productoSet=" + productoSet +
+                '}';
     }
 }

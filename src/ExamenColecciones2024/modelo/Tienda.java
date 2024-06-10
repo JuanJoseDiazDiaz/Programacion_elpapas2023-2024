@@ -1,25 +1,25 @@
 package ExamenColecciones2024.modelo;
 
-
 import ExamenColecciones2024.excepciones.TiendaException;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Tienda {
     private String nombre;
-    private Set<Categoria> categorias;
+    private Set<Categoria> categoriaSet;
 
     public Tienda(String nombre) {
         this.nombre = nombre;
-        this.categorias = new HashSet<>();
+        this.categoriaSet = new HashSet<>();
     }
 
     public String getNombre() {
         return nombre;
     }
-
 
     /**
      * Añade una nueva categoría. En caso de que exista, lanza una excepción
@@ -27,13 +27,12 @@ public class Tienda {
      * @param nombre
      * @throws TiendaException
      */
+
     public void addCategoria(String nombre) throws TiendaException {
-        Categoria categoria = new Categoria(nombre);
-        if (categorias.contains(categoria)) {
-            throw new TiendaException("Ya existe esa categoria");
-        }
-        categorias.add(categoria);
+        if (!categoriaSet.add(new Categoria(nombre)))
+            throw new TiendaException("La categoria ya se encuentra");
     }
+
 
     /**
      * Añade un producto a una lista de categorías. Se añadirá a aquellas categorías en las que todavía no exista. En
@@ -43,75 +42,73 @@ public class Tienda {
      * @param categorias
      */
     public void addProducto(Producto p, List<Categoria> categorias) throws TiendaException {
-        Categoria categoria = new Categoria(nombre);
-        if (!categorias.contains(p)) {
-                throw new TiendaException("No existe ese producto, esta categoria");
-            }
-            categoria.annadirProducto(p);
-
-
-
-    }
-
-
-    public Set<Categoria> categoriasConProductosSinStock() {
-        Set<Categoria> conjuntoCategorias = new HashSet<>();
-        categorias.stream().filter(categoria -> {
-            if (categorias instanceof Producto) {
-                if (categorias.contains(((Producto) categorias).getStock())) {
-                    conjuntoCategorias.add(categoria);
-                }
-            }
-            return false;
-        });
-        return conjuntoCategorias;
-    }
-
-
-    public Set<Categoria> categoriasDeProducto(Producto p) {
-        Set<Categoria> conjuntoCategorias = new HashSet<>();
-        categorias.stream().filter(categoria -> {
-            if (categorias.contains(p)) {
-                conjuntoCategorias.add(categoria);
-            }
-            return false;
-        });
-        return conjuntoCategorias;
-    }
-
-
-    public List<Producto> getTodosLosProductosOrdenadosPorPrecio() {
-        List<Producto> productos = new ArrayList<>();
-        return (List<Producto>) productos.stream().sorted((a, b) -> (int) (b.getPrecio() - a.getPrecio()));
-    }
-
-
-    public boolean eliminaProducto(Producto p) {
-        boolean eliminado = false;
-        for (Categoria c : categorias) {
-            if (!categorias.contains(p)) {
-                eliminado = false;
-                break;
-            }
-            if (categorias.contains(p)) {
-                c.eleminaProducto(p);
-                eliminado = true;
-                break;
+        for (Categoria categoria : categorias) {
+            if (!categorias.contains(categoria)) {
+                throw new TiendaException("La categoria no existe");
             }
         }
-        return eliminado;
+
+        for (Categoria categoria : categorias){
+            categoria.addProducto(p);
+        }
     }
 
+    /**
+     * Devuelve un conjunto con aquellas categorías que contienen algún producto sin stock
+     *
+     * @return
+     */
+    public Set<Categoria> categoriasConProductosSinStock() {
+        return categoriaSet.stream().filter(Categoria::productoSinStock).collect(Collectors.toSet());
+    }
 
-    public Set<Producto> productosUltimoAnno() {
-        HashSet<Producto> productos = new HashSet<>();
-        productos.stream().filter(p -> {
-            if (p.getFechaIncorporacion().getYear() <= LocalDate.now().getYear()) {
-                productos.add(p);
+    /**
+     * Devuelve un conjunto con las categorías a las que pertenece un producto determinado
+     *
+     * @param p
+     * @return
+     */
+    public Set<Categoria> categoriasDeProducto(Producto p) {
+        return categoriaSet.stream().filter(categoria -> categoria.buscarProductoCategoria(p)).collect(Collectors.toSet());
+    }
+
+    /**
+     * Devuelve un listado con todos los productos de la tienda (sin repetir) ordenados por precio de mayor a menor
+     *
+     * @return
+     */
+    public List<Producto> getTodosLosProductosOrdenadosPorPrecio() {
+        return categoriaSet.stream().flatMap(categoria -> categoria.getProductoSet().stream())
+                .distinct()
+                .sorted((a, b) -> Double.compare(a.getPrecio(),b.getPrecio())
+                ).toList();
+    }
+
+    /**
+     * Elimina un producto de todas las categorías donde aparezca.
+     *
+     * @param p
+     * @return true si el producto aparecía en alguna categoría
+     */
+    public boolean eliminaProducto(Producto p) {
+        for (Categoria categoria : categoriaSet){
+            if (categoriaSet.contains(p)){
+                categoria.borrarProducto(p);
             }
-            return false;
-        });
-        return productos;
+        }
+        return false;
     }
 
+    /**
+     * Devuelve un conjunto con aquellos productos que han sido añadido en el último año (a partir de la fecha actual)
+     *
+     * @return
+     */
+    public Set<Producto> productosUltimoAnno() {
+      return categoriaSet.stream().flatMap(categoria -> categoria.getProductoSet().stream()).filter(producto -> producto.getFechaIncorporacion().isBefore(LocalDate.now())).collect(Collectors.toSet());
+    }
+
+    public Set<Categoria> getCategoriaSet() {
+        return categoriaSet;
+    }
 }
