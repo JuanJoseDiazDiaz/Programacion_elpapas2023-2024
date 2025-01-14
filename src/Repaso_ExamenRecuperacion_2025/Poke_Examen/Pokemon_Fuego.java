@@ -1,8 +1,9 @@
 package Repaso_ExamenRecuperacion_2025.Poke_Examen;
 
 import java.util.Random;
+import java.util.Scanner;
 
-public class Pokemon_Fuego extends Pokemon{
+public class Pokemon_Fuego extends Pokemon implements Atacar, Atacable{
     private int waterResistance; // Resistencia a los ataques de tipo agua
     private boolean isSunny;
 
@@ -12,7 +13,7 @@ public class Pokemon_Fuego extends Pokemon{
         this.isSunny = false;
     }
 
-
+    @Override
     // Método para calcular el ataque con bonificación por sol
     public int calculateAttack() {
         if (isSunny) {
@@ -26,9 +27,12 @@ public class Pokemon_Fuego extends Pokemon{
             return getNivel_Ataque();
         }
     }
-
+    @Override
     // Método para recibir daño, teniendo en cuenta la resistencia al agua
-    public void receiveAttack(String attackType, int damage) {
+    public void receiveAttack(int damage) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Que tipo de ataque es: ");
+        String attackType = sc.nextLine();
         if (attackType.equalsIgnoreCase("agua")) {
             int reducedDamage = Math.max(damage - waterResistance, 0);
             int vidaActual = getPunt_Salud() - reducedDamage;

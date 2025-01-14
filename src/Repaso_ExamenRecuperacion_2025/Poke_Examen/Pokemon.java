@@ -53,4 +53,11 @@ public class Pokemon {
         }
         this.nivel_Defensa = nivel_Defensa;
     }
+
+    public boolean isAlive(int punto_Salud) throws PokemonException {
+        if (punto_Salud <= 0) {
+            throw new PokemonException("Lo siento, Pokemon esta muerto");
+        }
+        return true;
+    }
 }

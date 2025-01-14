@@ -1,8 +1,9 @@
 package Repaso_ExamenRecuperacion_2025.Poke_Examen;
 
 import java.util.Random;
+import java.util.Scanner;
 
-public class Pokemon_Tierra extends Pokemon {
+public class Pokemon_Tierra extends Pokemon implements Atacar, Atacable{
     private int electricResistance; // Resistencia a ataques eléctricos (1 a 9)
     private boolean isSandstorm; // Indica si hay tormenta de arena
     public Pokemon_Tierra(String nombre, int punt_Salud, int nivel_Ataque, int nivel_Defensa, int electricResistance) throws PokemonException {
@@ -10,6 +11,7 @@ public class Pokemon_Tierra extends Pokemon {
         this.electricResistance = electricResistance;
         this.isSandstorm = false;
     }
+    @Override
     // Método para calcular el ataque con bonificación por tormenta de arena
     public int calculateAttack() {
         if (isSandstorm) {
@@ -23,9 +25,12 @@ public class Pokemon_Tierra extends Pokemon {
             return getNivel_Ataque();
         }
     }
-
+    @Override
     // Método para recibir daño, con resistencia a ataques eléctricos
-    public void receiveAttack(String attackType, int damage) {
+    public void receiveAttack(int damage) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Que tipo de ataque es: ");
+        String attackType = sc.nextLine();
         if (attackType.equalsIgnoreCase("eléctrico")) {
             int reducedDamage = Math.max(damage - electricResistance, 0); // Reduce el daño por resistencia
             int dañoRecibido = getPunt_Salud() - reducedDamage;

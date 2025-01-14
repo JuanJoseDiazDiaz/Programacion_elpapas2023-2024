@@ -2,7 +2,7 @@ package Repaso_ExamenRecuperacion_2025.Poke_Examen;
 
 import java.util.Random;
 
-public class Pokemon_Agua extends Pokemon {
+public class Pokemon_Agua extends Pokemon implements Curarse, Atacar{
     private boolean esta_lloviendo;
     private int vidaRecuperada;
 
@@ -13,7 +13,9 @@ public class Pokemon_Agua extends Pokemon {
         this.vidaRecuperada = vidaRecuperada;
     }
 
-    // Metodo para curarse si está lloviendo
+
+
+    @Override
     public void heal() {
         if (esta_lloviendo) {
             int vidaTotal = getPunt_Salud() + vidaRecuperada;
@@ -23,7 +25,7 @@ public class Pokemon_Agua extends Pokemon {
         }
     }
 
-    // Metodo para calcular el ataque basado en la precisión por lluvia
+    @Override
     public int calculateAttack() {
         if (esta_lloviendo) {
             Random random = new Random();

@@ -2,7 +2,7 @@ package Repaso_ExamenRecuperacion_2025.Poke_Examen;
 
 import java.util.Random;
 
-public class Pokemon_Electrico extends Pokemon {
+public class Pokemon_Electrico extends Pokemon implements Atacar, Atacable{
     private double rainDamageReduction; // Reducción de daño bajo lluvia (entre 10% y 15%)
     private boolean isStorming; // Condición climática: tormenta eléctrica
     private boolean isRaining;
@@ -23,7 +23,21 @@ public class Pokemon_Electrico extends Pokemon {
         this.isRaining = raining;
     }
 
-    // Método para calcular el ataque con bonificación por tormenta eléctrica
+
+    @Override
+    // Método para recibir daño, con reducción bajo lluvia
+    public void receiveAttack(int damage) {
+        if (isRaining) {
+            int reducedDamage = (int) (damage * (1 - rainDamageReduction)); // Reduce el daño en un % fijo
+            int vidaDañoRecibido = getPunt_Salud() - reducedDamage;
+            System.out.println(getNombre() + " recibió un ataque bajo la lluvia. Daño reducido a: " + reducedDamage + ". Vida actual: " + vidaDañoRecibido);
+        } else {
+            int vidaDañoRecibido2 = getPunt_Salud() - damage;
+            System.out.println(getNombre() + " recibió un ataque. Daño: " + damage + ". Vida actual: " + vidaDañoRecibido2);
+        }
+    }
+
+    @Override
     public int calculateAttack() {
         if (isStorming) {
             Random random = new Random();
@@ -34,18 +48,6 @@ public class Pokemon_Electrico extends Pokemon {
         } else {
             System.out.println(getNombre() + " tiene ataque normal: " + getNivel_Ataque());
             return getNivel_Ataque();
-        }
-    }
-
-    // Método para recibir daño, con reducción bajo lluvia
-    public void receiveAttack(int damage) {
-        if (isRaining) {
-            int reducedDamage = (int) (damage * (1 - rainDamageReduction)); // Reduce el daño en un % fijo
-            int vidaDañoRecibido = getPunt_Salud() - reducedDamage;
-            System.out.println(getNombre() + " recibió un ataque bajo la lluvia. Daño reducido a: " + reducedDamage + ". Vida actual: " + vidaDañoRecibido);
-        } else {
-            int vidaDañoRecibido2 = getPunt_Salud() - damage;
-            System.out.println(getNombre() + " recibió un ataque. Daño: " + damage + ". Vida actual: " + vidaDañoRecibido2);
         }
     }
 }
