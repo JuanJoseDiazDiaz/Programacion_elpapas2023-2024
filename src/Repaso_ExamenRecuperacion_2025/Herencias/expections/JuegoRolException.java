@@ -1,4 +1,4 @@
-package Repaso_ExamenRecuperacion_2025.Herencias;
+package Repaso_ExamenRecuperacion_2025.Herencias.expections;
 
 public class JuegoRolException extends Exception {
     public JuegoRolException(String message, Throwable cause) {

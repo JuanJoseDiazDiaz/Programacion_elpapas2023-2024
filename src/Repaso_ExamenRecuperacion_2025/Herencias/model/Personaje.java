@@ -1,7 +1,6 @@
 package Repaso_ExamenRecuperacion_2025.Herencias.model;
 
-import Repaso_ExamenRecuperacion_2025.Herencias.JuegoRolException;
-import Repaso_ExamenRecuperacion_2025.Herencias.RazaEnum;
+import Repaso_ExamenRecuperacion_2025.Herencias.expections.JuegoRolException;
 
 public class Personaje {
     private String nombre;
