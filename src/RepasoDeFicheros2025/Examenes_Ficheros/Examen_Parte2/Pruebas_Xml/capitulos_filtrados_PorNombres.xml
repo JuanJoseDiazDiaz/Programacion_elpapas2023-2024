@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<simpsons>
+  <capitulo episodio="1" temporada="2">
+    <nombre>Bart, el genio</nombre>
+    <sinopsis>Tras hacer trampa en un test de inteligencia, **Bart** es enviado a una escuela para superdotados. Mientras tanto, **Homer** recibe un ascenso en la planta nuclear.</sinopsis>
+    <fecha_emision>11 de octubre de 1990</fecha_emision>
+  </capitulo>
+  <capitulo episodio="12" temporada="4">
+    <nombre>El heredero de Burns</nombre>
+    <sinopsis>Después de que Mr. Burns sufra un ataque al corazón, decide buscar un heredero para su fortuna. **Bart** y **Lisa** creen que tienen una oportunidad, pero sus planes se complican cuando se descubre un oscuro secreto sobre el pasado de Burns.</sinopsis>
+    <fecha_emision>17 de enero de 1993</fecha_emision>
+  </capitulo>
+  <capitulo episodio="2" temporada="5">
+    <nombre>Cape Feare</nombre>
+    <sinopsis>La familia Simpson se muda a una nueva casa para escapar de Sideshow Bob, un payaso vengativo que ha jurado matar a **Bart**. Sin embargo, Bob logra encontrarlos y comienza un aterrador juego del gato y el ratón.</sinopsis>
+    <fecha_emision>7 de octubre de 1993</fecha_emision>
+  </capitulo>
+</simpsons>
