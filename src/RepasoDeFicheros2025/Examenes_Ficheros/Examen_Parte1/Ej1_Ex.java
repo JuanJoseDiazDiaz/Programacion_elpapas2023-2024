@@ -15,7 +15,6 @@ public class Ej1_Ex {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
     public static void accionesDirectorio(File directorio1, File directorio2) throws ExamenFicherosRecuperacionExpection, IOException {
         comprobacionDirectorios(directorio1, directorio2);
 
@@ -29,7 +28,6 @@ public class Ej1_Ex {
             }
         }
     }
-
     public static void comprobacionDirectorios(File directorio1, File directorio2) throws ExamenFicherosRecuperacionExpection {
         if (!directorio1.isDirectory() || !directorio2.isDirectory()) {
             throw new ExamenFicherosRecuperacionExpection("Error: Uno o ambos no son directorios");
@@ -41,8 +39,7 @@ public class Ej1_Ex {
             throw new ExamenFicherosRecuperacionExpection("Error: El directorio de destino no tiene permisos de escritura");
         }
     }
-
-    public static void copiarSegundoDirectorio(File archivo, File directorio2) throws IOException, ExamenFicherosRecuperacionExpection {
+    public static void copiarSegundoDirectorio(File archivo, File directorio2) throws IOException {
         if (archivo.length() > 1024 &&
                 archivo.isFile() &&
                 archivo.getName().toLowerCase().endsWith(".txt") &&
@@ -53,7 +50,6 @@ public class Ej1_Ex {
             System.out.println("Archivo copiado: " + archivo.getName());
         }
     }
-
     public static boolean primeraPalabraEsCopiar(File archivo) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String primeraLinea = br.readLine();

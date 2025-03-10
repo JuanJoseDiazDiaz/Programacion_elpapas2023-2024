@@ -1,0 +1,8 @@
+# Este es un comentario, no se analizará, solo se imprimirá
+? /home/user/docs,/home/user/images | ext:jpg,ext:pdf
+* /var/log,/usr/local/bin | size:>10MB,owner:user
+$ /etc,/home/user/projects
+# Otro comentario aquí
+? /tmp | ext:log,ext:txt
+$ /home/user/docs,/home/user/images|.jpg
+# Fin de los ejemplos
