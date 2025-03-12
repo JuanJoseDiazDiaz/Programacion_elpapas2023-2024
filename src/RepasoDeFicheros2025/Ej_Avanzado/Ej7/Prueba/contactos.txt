@@ -1,7 +1,6 @@
 Carlos Ramírez, 612-345-678, carlos.ramirez@email.com
 Laura Torres, 645-567-890, laura.torres@email.com
 Pedro Sánchez, 690-234-567, pedro.sanchez@email.com
-Ana Fernández, 699-876-543, ana.fernandez@email.com
 David Gómez, 655-432-109, david.gomez@email.com
 Elena Márquez, 677-765-432, elena.marquez@email.com
 Roberto Díaz, 688-321-098, roberto.diaz@email.com
